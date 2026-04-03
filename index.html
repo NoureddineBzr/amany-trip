@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amany Trip — Agence de Voyages au Maroc | Istanbul, Dubaï, Égypte, Omra</title>
+  <meta name="description" content="Amany Trip — Votre agence de voyage à Casablanca. Voyages organisés vers Istanbul, Dubaï, Égypte, Omra, Bali et Tunisie. Devis gratuit, accompagnateur marocain. 📞 06 65 85 87 88">
+  <meta name="keywords" content="agence voyage maroc, voyage istanbul maroc, voyage dubai maroc, omra maroc, voyage egypte maroc, bali maroc, agence voyage casablanca">
+  <meta property="og:title" content="Amany Trip — Agence de Voyages Maroc">
+  <meta property="og:description" content="Voyages organisés au départ du Maroc — Istanbul, Dubaï, Égypte, Omra, Bali, Tunisie">
+  <meta property="og:image" content="assets/images/logobg.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/images/logobg.png">
+
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/images/logobg.png" as="image" fetchpriority="high">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Tajawal:wght@400;700;800&display=swap" as="style">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Inline critical CSS (navbar + hero — above the fold) -->
+  <style>
+    :root{--primary:#1a3a8f;--secondary:#2563c8;--accent:#cc1f4a;--yellow:#f5c518;--wa:#25D366;--white:#fff;--light:#f8f9fa;--dark:#1a1a2e;--text:#333;--muted:#666;--radius:16px;--radius-sm:8px;--tr:0.3s cubic-bezier(.4,0,.2,1);--font:'Poppins',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);color:var(--text);background:#fff;overflow-x:hidden;line-height:1.6}
+    img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}button{cursor:pointer;border:none;background:none;font-family:inherit}
+    .container{max-width:1240px;margin:0 auto;padding:0 24px}
+    /* Navbar */
+    .navbar{position:fixed;inset:0 0 auto 0;z-index:1000;background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.07);transition:box-shadow var(--tr)}
+    .nav-container{display:flex;align-items:center;justify-content:space-between;padding:10px 32px;max-width:1400px;margin:0 auto}
+    .nav-logo img{height:58px}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-link{font-size:.88rem;font-weight:500;color:var(--dark);padding:7px 13px;border-radius:8px;transition:var(--tr);position:relative}
+    .nav-link::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--accent);border-radius:2px;transition:width var(--tr)}
+    .nav-link:hover::after,.nav-link.active::after{width:55%}
+    .nav-link:hover{color:var(--accent)!important}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .lang-toggle{display:flex;align-items:center;gap:5px;background:var(--light);border:1.5px solid rgba(26,58,143,.18);color:var(--primary);padding:6px 15px;border-radius:100px;font-size:.83rem;font-weight:600;transition:var(--tr);white-space:nowrap;min-width:115px;justify-content:center;cursor:pointer;font-family:var(--font)}
+    .lang-toggle:hover{background:rgba(26,58,143,.07)}
+    .lang-divider{opacity:.4}.lang-fr.active,.lang-ar.active{color:var(--accent);font-weight:700}
+    .btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#fff;padding:9px 18px;border-radius:100px;font-size:.84rem;font-weight:600;transition:var(--tr);box-shadow:0 4px 14px rgba(37,211,102,.3);white-space:nowrap}
+    .btn-whatsapp:hover{background:#1dba58;transform:translateY(-2px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;padding:6px}
+    .hamburger span{display:block;width:24px;height:2.5px;background:var(--dark);border-radius:2px;transition:var(--tr)}
+    .mobile-menu{background:#fff;border-top:1px solid rgba(0,0,0,.06);max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+    .mobile-menu.open{max-height:560px}
+    .mobile-menu ul{display:flex;flex-direction:column;gap:2px;padding:16px 28px 24px}
+    .mobile-link{display:block;color:var(--dark)!important;font-size:.97rem;font-weight:500;padding:11px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+    /* Hero */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:linear-gradient(140deg,#0c1e5e 0%,#1a3a8f 35%,#1d4fc0 60%,#0b2360 100%);background-size:300% 300%;animation:heroGrad 14s ease infinite}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(245,197,24,.07) 0%,transparent 50%),radial-gradient(circle at 85% 75%,rgba(204,31,74,.07) 0%,transparent 50%)}
+    @keyframes heroGrad{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    .airplane-float{position:absolute;top:12%;right:6%;width:clamp(130px,18vw,260px);opacity:.35;animation:floatPlane 8s ease-in-out infinite;pointer-events:none;z-index:1}
+    @keyframes floatPlane{0%,100%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-22px) translateX(10px) rotate(2deg)}75%{transform:translateY(10px) translateX(-8px) rotate(-2deg)}}
+    .hero-content{position:relative;z-index:2;text-align:center;padding:110px 24px 100px;max-width:920px;width:100%}
+    .hero-badge{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9);font-size:.83rem;font-weight:500;padding:7px 20px;border-radius:100px;margin-bottom:26px;backdrop-filter:blur(8px);opacity:0}
+    .hero-title{font-size:clamp(2.3rem,6vw,4rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:18px;display:flex;flex-direction:column;gap:4px}
+    .hero-line{display:block}.accent-line{background:linear-gradient(120deg,var(--yellow),#ffd740);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-title .word{display:inline-block}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);margin-bottom:36px;letter-spacing:.8px;opacity:0}
+    .hero-cta{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:52px;opacity:0}
+    .hero-stats{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:20px;padding:22px 28px;backdrop-filter:blur(14px);opacity:0}
+    .stat{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;min-width:100px;padding:0 20px}
+    .stat-num{font-size:2.1rem;font-weight:800;color:var(--yellow);line-height:1}
+    .stat-label{font-size:.78rem;color:rgba(255,255,255,.72);text-align:center}
+    .stat-sep{width:1px;height:46px;background:rgba(255,255,255,.14);flex-shrink:0}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:100px;font-weight:600;font-size:.93rem;transition:var(--tr);white-space:nowrap;font-family:var(--font)}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 20px rgba(204,31,74,.32)}
+    .btn-primary:hover{background:#ad1840;transform:translateY(-2px);box-shadow:0 10px 28px rgba(204,31,74,.4)}
+    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.65)}
+    .btn-outline:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+    .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2}
+    .scroll-mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.38);border-radius:12px;display:flex;align-items:flex-start;justify-content:center;padding-top:5px}
+    .scroll-dot{width:4px;height:7px;background:rgba(255,255,255,.65);border-radius:2px;animation:scrollAnim 2s ease-in-out infinite}
+    @keyframes scrollAnim{0%{transform:translateY(0);opacity:1}55%{transform:translateY(11px);opacity:0}100%{transform:translateY(0);opacity:0}}
+    /* Marquee */
+    .marquee-section{background:var(--primary);padding:16px 0;overflow:hidden}
+    .marquee-track{display:flex;width:max-content;animation:marquee 32s linear infinite}
+    .marquee-inner{display:flex;align-items:center;gap:26px;padding-right:26px;white-space:nowrap}
+    .marquee-inner span{font-size:.88rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.88)}
+    .marquee-inner .sep{color:var(--yellow);font-size:1.1rem;letter-spacing:0}
+    @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* Floating WhatsApp */
+    .float-wa{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;z-index:9999;box-shadow:0 6px 22px rgba(37,211,102,.45);transition:var(--tr);animation:pulseWa 2.5s ease-in-out infinite;opacity:0;pointer-events:none;transform:scale(.7)}
+    .float-wa.visible{opacity:1;pointer-events:all;transform:scale(1)}
+    .float-wa:hover{transform:scale(1.1)!important}
+    @keyframes pulseWa{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.45)}50%{box-shadow:0 6px 22px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,.12)}}
+    .float-wa-tip{position:absolute;right:70px;background:var(--dark);color:#fff;font-size:.76rem;font-weight:600;padding:7px 13px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:var(--tr)}
+    .float-wa-tip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:6px solid transparent;border-left-color:var(--dark)}
+    .float-wa:hover .float-wa-tip{opacity:1}
+    /* Responsive critical */
+    @media(max-width:1024px){.nav-links,.btn-whatsapp:not(.mobile-wa){display:none}.hamburger{display:flex}.mobile-menu{display:block}}
+    @media(max-width:640px){.hero-cta{flex-direction:column}.hero-cta .btn{width:100%;justify-content:center}.hero-stats{gap:16px}.stat-sep{display:none}.stat{padding:0 8px}.nav-container{padding:10px 18px}.float-wa{bottom:18px;right:18px}}
+  </style>
+
+  <!-- Non-critical CSS: loaded async, no render blocking -->
+  <link rel="preload" href="css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.css"></noscript>
+  <link rel="stylesheet" href="css/rtl.css" id="rtl-stylesheet" disabled>
+</head>
+<body>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <img src="assets/images/logobg.png" alt="Amany Trip" width="160" height="58" loading="eager" fetchpriority="high" decoding="sync">
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home"         class="nav-link" data-fr="Accueil"      data-ar="الرئيسية">Accueil</a></li>
+      <li><a href="#destinations" class="nav-link" data-fr="Destinations" data-ar="الوجهات">Destinations</a></li>
+      <li><a href="#pourquoi"     class="nav-link" data-fr="Pourquoi nous" data-ar="لماذا نحن">Pourquoi nous</a></li>
+      <li><a href="#about"        class="nav-link" data-fr="À propos"     data-ar="من نحن">À propos</a></li>
+      <li><a href="#contact"      class="nav-link" data-fr="Réserver"     data-ar="احجز">Réserver</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Changer la langue">
+        <span class="lang-fr active">FR</span>
+        <span class="lang-divider">|</span>
+        <span class="lang-ar">العربية</span>
+      </button>
+      <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-fr="Réserver via WhatsApp" data-ar="احجز عبر واتساب">Réserver via WhatsApp</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#home"         class="nav-link mobile-link" data-fr="Accueil"       data-ar="الرئيسية">Accueil</a></li>
+      <li><a href="#destinations" class="nav-link mobile-link" data-fr="Destinations"  data-ar="الوجهات">Destinations</a></li>
+      <li><a href="#pourquoi"     class="nav-link mobile-link" data-fr="Pourquoi nous" data-ar="لماذا نحن">Pourquoi nous</a></li>
+      <li><a href="#about"        class="nav-link mobile-link" data-fr="À propos"      data-ar="من نحن">À propos</a></li>
+      <li><a href="#contact"      class="nav-link mobile-link" data-fr="Réserver"      data-ar="احجز">Réserver</a></li>
+      <li>
+        <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="btn-whatsapp mobile-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-fr="Réserver via WhatsApp" data-ar="احجز عبر واتساب">Réserver via WhatsApp</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="airplane-float" aria-hidden="true">
+    <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 40 L170 5 L140 40 L170 75 Z" fill="rgba(255,255,255,0.06)"/>
+      <path d="M80 28 L160 40 L80 52 Z" fill="rgba(245,197,24,0.12)"/>
+      <circle cx="30" cy="40" r="25" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+      <circle cx="30" cy="40" r="15" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge" id="hero-badge">
+      <span data-fr="🇲🇦 Agence de Voyage Certifiée au Maroc" data-ar="🇲🇦 وكالة سفر معتمدة في المغرب">🇲🇦 Agence de Voyage Certifiée au Maroc</span>
+    </div>
+
+    <h1 class="hero-title" id="hero-title">
+      <span class="hero-line" data-fr="Voyagez avec confiance," data-ar="سافر بثقة،">Voyagez avec confiance,</span>
+      <span class="hero-line accent-line" data-fr="vivez l'extraordinaire." data-ar="عش الاستثنائي.">vivez l'extraordinaire.</span>
+    </h1>
+
+    <p class="hero-sub" id="hero-sub">
+      <span data-fr="Istanbul · Égypte · Dubaï · Omra · Bali · Tunisie" data-ar="إسطنبول · مصر · دبي · عمرة · بالي · تونس">Istanbul · Égypte · Dubaï · Omra · Bali · Tunisie</span>
+    </p>
+
+    <div class="hero-cta" id="hero-cta">
+      <a href="#destinations" class="btn btn-primary">
+        <span data-fr="Découvrir nos voyages →" data-ar="اكتشف رحلاتنا ←">Découvrir nos voyages →</span>
+      </a>
+      <a href="tel:0665858788" class="btn btn-outline">
+        <span data-fr="📞 Nous appeler" data-ar="📞 اتصل بنا">📞 Nous appeler</span>
+      </a>
+    </div>
+
+    <div class="hero-stats" id="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-target="500" data-suffix="+">0+</span>
+        <span class="stat-label" data-fr="Voyageurs satisfaits" data-ar="مسافر سعيد">Voyageurs satisfaits</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="6" data-suffix="">0</span>
+        <span class="stat-label" data-fr="Destinations" data-ar="وجهات">Destinations</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="10" data-suffix="+">0+</span>
+        <span class="stat-label" data-fr="Années d'expérience" data-ar="سنوات خبرة">Années d'expérience</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-num" data-target="98" data-suffix="%">0%</span>
+        <span class="stat-label" data-fr="Taux de satisfaction" data-ar="نسبة الرضا">Taux de satisfaction</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+  </div>
+</section>
+
+<!-- ══════════════════ MARQUEE ══════════════════ -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      <span>Istanbul ✈</span><span class="sep">·</span>
+      <span>Égypte 🏺</span><span class="sep">·</span>
+      <span>Dubaï 🏙</span><span class="sep">·</span>
+      <span>Omra 🕌</span><span class="sep">·</span>
+      <span>Bali 🌴</span><span class="sep">·</span>
+      <span>Tunisie ☀️</span><span class="sep">·</span>
+      <span>Kuala Lumpur 🌆</span><span class="sep">·</span>
+    </div>
+    <div class="marquee-inner" aria-hidden="true">
+      <span>Istanbul ✈</span><span class="sep">·</span>
+      <span>Égypte 🏺</span><span class="sep">·</span>
+      <span>Dubaï 🏙</span><span class="sep">·</span>
+      <span>Omra 🕌</span><span class="sep">·</span>
+      <span>Bali 🌴</span><span class="sep">·</span>
+      <span>Tunisie ☀️</span><span class="sep">·</span>
+      <span>Kuala Lumpur 🌆</span><span class="sep">·</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ DESTINATIONS ══════════════════ -->
+<section class="section destinations-section" id="destinations">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag" data-fr="Nos destinations phares" data-ar="وجهاتنا المميزة">Nos destinations phares</span>
+      <h2 class="section-title" data-fr="Nos Destinations" data-ar="وجهاتنا">Nos Destinations</h2>
+      <p class="section-sub" data-fr="Des voyages inoubliables soigneusement organisés pour vous" data-ar="رحلات لا تُنسى مُنظَّمة بعناية من أجلك">Des voyages inoubliables soigneusement organisés pour vous</p>
+    </div>
+
+    <div class="dest-grid">
+
+      <!-- CARD 1: Istanbul -->
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dest-img-wrap">
+          <img src="assets/images/istanbul.png" alt="Voyage Istanbul Turquie - Amany Trip" width="400" height="220" loading="lazy" decoding="async">
+          <div class="dest-img-overlay"></div>
+          <span class="dest-badge left-badge">✈ Vol direct RAM</span>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-title" data-fr="Istanbul, Turquie" data-ar="إسطنبول، تركيا">Istanbul, Turquie</h3>
+          <ul class="dest-highlights">
+            <li data-fr="Vol direct avec RAM (56kg bagages)" data-ar="رحلة مباشرة مع RAM (56 كيلو أمتعة)">Vol direct avec RAM (56kg bagages)</li>
+            <li data-fr="Hôtels de luxe au cœur d'Istanbul" data-ar="فنادق فاخرة في قلب إسطنبول">Hôtels de luxe au cœur d'Istanbul</li>
+            <li data-fr="Accompagnateur marocain professionnel" data-ar="مرافق مغربي محترف">Accompagnateur marocain professionnel</li>
+            <li data-fr="Visites guidées complètes" data-ar="جولات إرشادية شاملة">Visites guidées complètes</li>
+          </ul>
+          <div class="dest-footer">
+            <span class="dest-price" data-fr="Sur demande" data-ar="عند الطلب">Sur demande</span>
+            <a href="https://wa.me/212604702922?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20le%20voyage%20Istanbul" target="_blank" rel="noopener" class="btn-dest" data-fr="En savoir plus →" data-ar="اعرف أكثر ←">En savoir plus →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Égypte -->
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="dest-img-wrap">
+          <img src="assets/images/egypt.png" alt="Voyage Égypte - Amany Trip" width="400" height="220" loading="lazy" decoding="async">
+          <div class="dest-img-overlay"></div>
+          <span class="duration-badge" data-fr="14j / 13n" data-ar="14 يوم / 13 ليلة">14j / 13n</span>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-title" data-fr="Égypte — Le Nil vous appelle" data-ar="مصر — النيل ينتظرك">Égypte — Le Nil vous appelle</h3>
+          <ul class="dest-highlights">
+            <li data-fr="Hôtels 4 étoiles" data-ar="فنادق 4 نجوم">Hôtels 4 étoiles</li>
+            <li data-fr="Vol aller-retour inclus" data-ar="تذاكر طيران ذهابًا وإيابًا شاملة">Vol aller-retour inclus</li>
+            <li data-fr="Transferts entre villes" data-ar="تنقلات بين المدن">Transferts entre villes</li>
+            <li data-fr="Repas cuisine égyptienne" data-ar="وجبات المطبخ المصري">Repas cuisine égyptienne</li>
+            <li data-fr="Visites: Pyramides, Musée Égyptien, Abu Simbel" data-ar="زيارات: الأهرامات، المتحف المصري، أبو سمبل">Visites: Pyramides, Musée Égyptien, Abu Simbel</li>
+            <li data-fr="Accompagnateur dédié" data-ar="مرافق مخصص">Accompagnateur dédié</li>
+          </ul>
+          <div class="dest-footer">
+            <span class="dest-price" data-fr="À partir de 16 500 MAD" data-ar="ابتداءً من 16,500 درهم">À partir de 16 500 MAD</span>
+            <a href="https://wa.me/212604702922?text=Bonjour%2C%20je%20voudrais%20r%C3%A9server%20le%20voyage%20%C3%89gypte" target="_blank" rel="noopener" class="btn-dest" data-fr="Réserver →" data-ar="احجز ←">Réserver →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Dubaï -->
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dest-img-wrap">
+          <img src="assets/images/dubai.png" alt="Voyage Dubaï Émirats - Amany Trip" width="400" height="220" loading="lazy" decoding="async">
+          <div class="dest-img-overlay"></div>
+          <span class="dest-badge left-badge badge-yellow">⭐ Populaire</span>
+          <span class="duration-badge" data-fr="8j / 7n" data-ar="8 أيام / 7 ليالي">8j / 7n</span>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-title" data-fr="Dubaï — Le luxe vous attend" data-ar="دبي — الفخامة في انتظارك">Dubaï — Le luxe vous attend</h3>
+          <ul class="dest-highlights">
+            <li data-fr="Hôtels de luxe" data-ar="فنادق فاخرة">Hôtels de luxe</li>
+            <li data-fr="Vol aller-retour inclus" data-ar="تذاكر طيران ذهابًا وإيابًا شاملة">Vol aller-retour inclus</li>
+            <li data-fr="Transferts confortables" data-ar="تنقلات مريحة">Transferts confortables</li>
+            <li data-fr="Visites organisées (Burj Khalifa, Safari désert...)" data-ar="جولات منظمة (برج خليفة، سفاري الصحراء...)">Visites organisées (Burj Khalifa, Safari désert...)</li>
+            <li data-fr="Accompagnateur dédié" data-ar="مرافق مخصص">Accompagnateur dédié</li>
+          </ul>
+          <div class="dest-footer">
+            <span class="dest-price" data-fr="À partir de 11 700 MAD" data-ar="ابتداءً من 11,700 درهم">À partir de 11 700 MAD</span>
+            <a href="https://wa.me/212604702922?text=Bonjour%2C%20je%20voudrais%20r%C3%A9server%20le%20voyage%20Duba%C3%AF" target="_blank" rel="noopener" class="btn-dest" data-fr="Réserver →" data-ar="احجز ←">Réserver →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: Omra -->
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dest-img-wrap">
+          <img src="assets/images/omra.png" alt="Voyage Omra La Mecque - Amany Trip" width="400" height="220" loading="lazy" decoding="async">
+          <div class="dest-img-overlay"></div>
+          <span class="dest-badge left-badge badge-green">🕌 Spirituel</span>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-title" data-fr="Omra — Le voyage spirituel" data-ar="العمرة — الرحلة الروحية">Omra — Le voyage spirituel</h3>
+          <ul class="dest-highlights">
+            <li data-fr="Vol direct vers Médine" data-ar="رحلة مباشرة إلى المدينة المنورة">Vol direct vers Médine</li>
+            <li data-fr="Transport en bus climatisé" data-ar="مواصلات بالحافلة المكيفة">Transport en bus climatisé</li>
+            <li data-fr="Hébergement de luxe" data-ar="إقامة فاخرة">Hébergement de luxe</li>
+            <li data-fr="Accompagnement religieux et technique" data-ar="مرافقة دينية وتقنية">Accompagnement religieux et technique</li>
+            <li data-fr="Visites à La Mecque et Médine" data-ar="زيارات مكة المكرمة والمدينة المنورة">Visites à La Mecque et Médine</li>
+            <li data-fr="Assurance médicale complète" data-ar="تأمين طبي شامل">Assurance médicale complète</li>
+          </ul>
+          <div class="dest-footer">
+            <span class="dest-price" data-fr="À partir de 13 500 MAD" data-ar="ابتداءً من 13,500 درهم">À partir de 13 500 MAD</span>
+            <a href="https://wa.me/212604702922?text=Bonjour%2C%20je%20voudrais%20r%C3%A9server%20le%20forfait%20Omra" target="_blank" rel="noopener" class="btn-dest" data-fr="Réserver →" data-ar="احجز ←">Réserver →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5: Bali × Kuala Lumpur -->
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="dest-img-wrap">
+          <img src="assets/images/bali-kuala-lumpur.png" alt="Voyage Bali Kuala Lumpur - Amany Trip" width="400" height="220" loading="lazy" decoding="async">
+          <div class="dest-img-overlay"></div>
+          <span class="dest-badge left-badge badge-teal">🌴 Aventure</span>
+          <span class="duration-badge" data-fr="14j / 13n" data-ar="14 يوم / 13 ليلة">14j / 13n</span>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-title" data-fr="Bali × Kuala Lumpur" data-ar="بالي × كوالا لامبور">Bali × Kuala Lumpur</h3>
+          <ul class="dest-highlights">
+            <li data-fr="Hôtels de luxe" data-ar="فنادق فاخرة">Hôtels de luxe</li>
+            <li data-fr="Vol aller-retour inclus" data-ar="تذاكر طيران ذهابًا وإيابًا شاملة">Vol aller-retour inclus</li>
+            <li data-fr="Transferts internes confortables" data-ar="تنقلات داخلية مريحة">Transferts internes confortables</li>
+            <li data-fr="Repas saveurs asiatiques" data-ar="وجبات بنكهات آسيوية">Repas saveurs asiatiques</li>
+            <li data-fr="Circuits touristiques organisés" data-ar="جولات سياحية منظمة">Circuits touristiques organisés</li>
+            <li data-fr="Accompagnateur dédié" data-ar="مرافق مخصص">Accompagnateur dédié</li>
+          </ul>
+          <div class="dest-footer">
+            <span class="dest-price" data-fr="À partir de 21 300 MAD" data-ar="ابتداءً من 21,300 درهم">À partir de 21 300 MAD</span>
+            <a href="https://wa.me/212604702922?text=Bonjour%2C%20je%20voudrais%20r%C3%A9server%20le%20voyage%20Bali%20x%20KL" target="_blank" rel="noopener" class="btn-dest" data-fr="Réserver →" data-ar="احجز ←">Réserver →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6: Tunisie -->
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dest-img-wrap">
+          <img src="assets/images/omra.png" alt="Voyage Tunisie - Amany Trip" width="400" height="220" loading="lazy" decoding="async">
+          <div class="dest-img-overlay"></div>
+        </div>
+        <div class="dest-body">
+          <h3 class="dest-title" data-fr="Tunisie — Soleil &amp; Histoire" data-ar="تونس — الشمس والتاريخ">Tunisie — Soleil &amp; Histoire</h3>
+          <ul class="dest-highlights">
+            <li data-fr="Vol aller-retour inclus" data-ar="تذاكر طيران ذهابًا وإيابًا شاملة">Vol aller-retour inclus</li>
+            <li data-fr="Hôtels sélectionnés" data-ar="فنادق مختارة">Hôtels sélectionnés</li>
+            <li data-fr="Transferts inclus" data-ar="تنقلات شاملة">Transferts inclus</li>
+            <li data-fr="Visites guidées" data-ar="جولات إرشادية">Visites guidées</li>
+          </ul>
+          <div class="dest-footer">
+            <span class="dest-price" data-fr="Sur demande" data-ar="عند الطلب">Sur demande</span>
+            <a href="https://wa.me/212604702922?text=Bonjour%2C%20je%20voudrais%20des%20informations%20sur%20la%20Tunisie" target="_blank" rel="noopener" class="btn-dest" data-fr="Nous contacter →" data-ar="تواصل معنا ←">Nous contacter →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /dest-grid -->
+  </div>
+</section>
+
+<!-- ══════════════════ WHY US ══════════════════ -->
+<section class="section why-section" id="pourquoi">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag" data-fr="Nos engagements" data-ar="التزاماتنا">Nos engagements</span>
+      <h2 class="section-title" data-fr="Pourquoi choisir Amany Trip?" data-ar="لماذا تختار أماني تريب؟">Pourquoi choisir Amany Trip?</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-icon">✈</div>
+        <div class="why-card-text">
+          <h3 data-fr="Vol Direct RAM" data-ar="طيران مباشر">Vol Direct RAM</h3>
+          <p data-fr="Voyagez confortablement avec 56kg de bagages inclus" data-ar="سافر بارتياح مع 56 كيلو أمتعة مشمولة">Voyagez confortablement avec 56kg de bagages inclus</p>
+        </div>
+      </div>
+      <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-icon">🏨</div>
+        <div class="why-card-text">
+          <h3 data-fr="Hôtels Sélectionnés" data-ar="فنادق مختارة">Hôtels Sélectionnés</h3>
+          <p data-fr="Des établissements de qualité pour votre confort" data-ar="فنادق راقية لراحتك التامة">Des établissements de qualité pour votre confort</p>
+        </div>
+      </div>
+      <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="why-icon">👨‍💼</div>
+        <div class="why-card-text">
+          <h3 data-fr="Accompagnateur Marocain" data-ar="مؤطر مغربي">Accompagnateur Marocain</h3>
+          <p data-fr="Un professionnel marocain avec vous tout au long du voyage" data-ar="مرافق مغربي محترف معك طوال الرحلة">Un professionnel marocain avec vous tout au long du voyage</p>
+        </div>
+      </div>
+      <div class="why-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="why-icon">🛡️</div>
+        <div class="why-card-text">
+          <h3 data-fr="Assurance Médicale" data-ar="تأمين طبي">Assurance Médicale</h3>
+          <p data-fr="Voyagez l'esprit tranquille avec notre couverture complète" data-ar="سافر بأمان مع تغطيتنا الطبية الشاملة">Voyagez l'esprit tranquille avec notre couverture complète</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TESTIMONIALS ══════════════════ -->
+<section class="section testi-section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag" data-fr="Ils nous font confiance" data-ar="يثقون بنا">Ils nous font confiance</span>
+      <h2 class="section-title" data-fr="Ce que disent nos voyageurs" data-ar="ما يقوله مسافرونا">Ce que disent nos voyageurs</h2>
+    </div>
+
+    <div class="swiper testi-swiper" data-aos="fade-up" data-aos-delay="150">
+      <div class="swiper-wrapper">
+
+        <!-- 1. Amal Ghilany -->
+        <div class="swiper-slide">
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p data-fr="Le service est excellent, le personnel est vraiment serviable et toujours disponible pour vous." data-ar="الخدمة رائعة والموظفون متعاونون جداً، دائماً في الخدمة من أجلك.">
+              Le service est excellent, le personnel est vraiment serviable et toujours disponible pour vous.
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--primary)">A</div>
+              <div>
+                <strong>Amal Ghilany</strong>
+                <span data-fr="Avis Google · 2025" data-ar="تقييم جوجل · 2025">Avis Google · 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Kenza Fiddas -->
+        <div class="swiper-slide">
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p data-fr="J'ai vécu une expérience exceptionnelle avec cette agence. Leur équipe est attentive, professionnelle et a su personnaliser mon itinéraire selon mes préférences. Les services sont impeccables et chaque étape de mon voyage était parfaitement organisée. Je recommande vivement&nbsp;!" data-ar="لقد مررت بتجربة استثنائية مع هذه الوكالة. الفريق منتبه ومحترف وتمكن من تخصيص مساري وفق تفضيلاتي. الخدمات لا تشوبها شائبة وكل خطوة في رحلتي كانت منظمة بشكل مثالي. أوصي بشدة!">
+              J'ai vécu une expérience exceptionnelle avec cette agence. Leur équipe est attentive, professionnelle et a su personnaliser mon itinéraire selon mes préférences. Les services sont impeccables et chaque étape de mon voyage était parfaitement organisée. Je recommande vivement&nbsp;!
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--accent)">K</div>
+              <div>
+                <strong>Kenza Fiddas</strong>
+                <span data-fr="Avis Google · 2024" data-ar="تقييم جوجل · 2024">Avis Google · 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Oussama Bouheria -->
+        <div class="swiper-slide">
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p data-fr="La meilleure agence avec laquelle vous pouvez voyager ❤️" data-ar="أفضل وكالة يمكنك السفر معها ❤️">
+              La meilleure agence avec laquelle vous pouvez voyager ❤️
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--yellow);color:var(--dark)">O</div>
+              <div>
+                <strong>Oussama Bouheria</strong>
+                <span data-fr="Avis Google · 2024" data-ar="تقييم جوجل · 2024">Avis Google · 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Oumaima Rizza -->
+        <div class="swiper-slide">
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p data-fr="Très bon accueil de la part des responsables. Je vous souhaite bonne chance, merci&nbsp;!" data-ar="تعامل ممتاز من المسؤولين. أتمنى لكم التوفيق، شكراً جزيلاً!">
+              Très bon accueil de la part des responsables. Je vous souhaite bonne chance, merci&nbsp;!
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:#0d9488">O</div>
+              <div>
+                <strong>Oumaima Rizza</strong>
+                <span data-fr="Avis Google · 2025" data-ar="تقييم جوجل · 2025">Avis Google · 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Yassine Chegdane -->
+        <div class="swiper-slide">
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p data-fr="Merci pour votre service, je suis très satisfait de la qualité de la prise en charge." data-ar="شكراً على خدمتكم، أنا راضٍ جداً عن جودة الاستقبال والتعامل.">
+              Merci pour votre service, je suis très satisfait de la qualité de la prise en charge.
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--secondary)">Y</div>
+              <div>
+                <strong>Yassine Chegdane</strong>
+                <span data-fr="Avis Google · 2025" data-ar="تقييم جوجل · 2025">Avis Google · 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- All reviews CTA -->
+    <div class="reviews-cta" data-aos="fade-up" data-aos-delay="200">
+      <a href="https://maps.app.goo.gl/vCp3GuMkhekbyFJ5A" target="_blank" rel="noopener" class="btn-all-reviews">
+        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        <span class="reviews-cta-text">
+          <span data-fr="Voir tous nos avis sur Google Maps" data-ar="عرض جميع تقييماتنا على خرائط جوجل">Voir tous nos avis sur Google Maps</span>
+          <span class="reviews-stars">★★★★★ <strong>5.0</strong></span>
+        </span>
+        <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ À PROPOS ══════════════════ -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-text" data-aos="fade-right">
+        <span class="section-tag" data-fr="Notre histoire" data-ar="قصتنا">Notre histoire</span>
+        <h2 class="section-title text-left" data-fr="À Propos d'Amany Trip" data-ar="عن أماني تريب">À Propos d'Amany Trip</h2>
+        <p data-fr="Amany Trip est une agence de voyage marocaine basée à Casablanca, spécialisée dans l'organisation de voyages de groupe vers les plus belles destinations du monde. Notre équipe de professionnels passionnés s'engage à vous offrir une expérience de voyage inoubliable — du départ jusqu'au retour." data-ar="أماني تريب هي وكالة سفر مغربية مقرها الدار البيضاء، متخصصة في تنظيم رحلات جماعية إلى أجمل وجهات العالم. فريقنا من المحترفين الشغوفين يلتزم بتقديم تجربة سفر لا تُنسى — من الانطلاق حتى العودة.">
+          Amany Trip est une agence de voyage marocaine basée à Casablanca, spécialisée dans l'organisation de voyages de groupe vers les plus belles destinations du monde. Notre équipe de professionnels passionnés s'engage à vous offrir une expérience de voyage inoubliable — du départ jusqu'au retour.
+        </p>
+        <div class="about-stats-grid">
+          <div class="about-stat">
+            <span class="about-stat-num" data-target="500" data-suffix="+">0</span>
+            <span data-fr="Voyageurs" data-ar="مسافر">Voyageurs</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-target="6" data-suffix="">0</span>
+            <span data-fr="Destinations" data-ar="وجهات">Destinations</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-target="10" data-suffix="+">0</span>
+            <span data-fr="Ans d'exp." data-ar="سنوات خبرة">Ans d'exp.</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num" data-target="98" data-suffix="%">0</span>
+            <span data-fr="Satisfaction" data-ar="رضا">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-location" data-aos="fade-left">
+        <div class="location-card">
+          <div class="location-header">
+            <img src="assets/images/logobg.png" alt="Amany Trip" width="160" height="55" loading="lazy" decoding="async">
+          </div>
+          <div class="location-body">
+            <div class="location-item">
+              <span class="location-icon">📍</span>
+              <div>
+                <strong data-fr="Notre bureau" data-ar="مكتبنا">Notre bureau</strong>
+                <p data-fr="Bureau N°9, 3ème étage, Capital Center, Imm B, Bouskoura 20180" data-ar="المكتب رقم 9، الطابق 3، Capital Center، عمارة B، بوسكورة 20180">
+                  Bureau N°9, 3ème étage, Capital Center, Imm B, Bouskoura 20180
+                </p>
+              </div>
+            </div>
+            <div class="location-item">
+              <span class="location-icon">📞</span>
+              <div>
+                <strong data-fr="Téléphone" data-ar="الهاتف">Téléphone</strong>
+                <a href="tel:0665858788" class="tel-link">06 65 85 87 88</a>
+                <a href="tel:0604702922" class="tel-link">06 04 70 29 22</a>
+                <a href="tel:0520810850" class="tel-link">05 20 81 08 50</a>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/wVngdJNxRBBtoyzd6" target="_blank" rel="noopener" class="btn-maps">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-fr="Voir sur Google Maps →" data-ar="عرض على خرائط جوجل ←">Voir sur Google Maps →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CONTACT / RÉSERVATION ══════════════════ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag" data-fr="Prêt à partir?" data-ar="مستعد للانطلاق؟">Prêt à partir?</span>
+      <h2 class="section-title" data-fr="Réservez Votre Voyage" data-ar="احجز رحلتك">Réservez Votre Voyage</h2>
+      <p class="section-sub" data-fr="Notre équipe vous répond dans les 24h" data-ar="فريقنا يجيبك خلال 24 ساعة">Notre équipe vous répond dans les 24h</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Form -->
+      <div class="contact-form-wrap" data-aos="fade-right">
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-fr="Prénom &amp; Nom" data-ar="الاسم الكامل">Prénom &amp; Nom</label>
+              <input type="text" id="f-name" placeholder="Mohammed Alami" required>
+            </div>
+            <div class="form-group">
+              <label data-fr="Email" data-ar="البريد الإلكتروني">Email</label>
+              <input type="email" id="f-email" placeholder="email@exemple.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-fr="Téléphone / WhatsApp" data-ar="الهاتف / واتساب">Téléphone / WhatsApp</label>
+            <input type="tel" id="f-phone" placeholder="06 XX XX XX XX" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-fr="Destination" data-ar="الوجهة">Destination</label>
+              <select id="f-dest" required>
+                <option value="" data-fr="Choisir..." data-ar="اختر...">Choisir...</option>
+                <option value="Istanbul"       data-fr="Istanbul"           data-ar="إسطنبول">Istanbul</option>
+                <option value="Égypte"         data-fr="Égypte"             data-ar="مصر">Égypte</option>
+                <option value="Dubaï"          data-fr="Dubaï"              data-ar="دبي">Dubaï</option>
+                <option value="Omra"           data-fr="Omra"               data-ar="عمرة">Omra</option>
+                <option value="Bali × KL"      data-fr="Bali × Kuala Lumpur" data-ar="بالي × كوالا لامبور">Bali × Kuala Lumpur</option>
+                <option value="Tunisie"        data-fr="Tunisie"            data-ar="تونس">Tunisie</option>
+                <option value="Autre"          data-fr="Autre"              data-ar="أخرى">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-fr="Nombre de voyageurs" data-ar="عدد المسافرين">Nombre de voyageurs</label>
+              <select id="f-travelers">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6+" data-fr="6 ou plus" data-ar="6 أو أكثر">6 ou plus</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label data-fr="Date de départ" data-ar="تاريخ الانطلاق">Date de départ</label>
+              <input type="date" id="f-date">
+            </div>
+            <div class="form-group">
+              <label data-fr="Budget" data-ar="الميزانية">Budget</label>
+              <select id="f-budget">
+                <option value="" data-fr="Choisir..." data-ar="اختر...">Choisir...</option>
+                <option value="< 10 000"    data-fr="Moins de 10 000 MAD"  data-ar="أقل من 10,000 درهم">Moins de 10 000 MAD</option>
+                <option value="10-15 000"   data-fr="10 000 – 15 000 MAD"  data-ar="10,000 – 15,000 درهم">10 000 – 15 000 MAD</option>
+                <option value="15-25 000"   data-fr="15 000 – 25 000 MAD"  data-ar="15,000 – 25,000 درهم">15 000 – 25 000 MAD</option>
+                <option value="> 25 000"    data-fr="+25 000 MAD"          data-ar="+25,000 درهم">+25 000 MAD</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label data-fr="Message" data-ar="الرسالة">Message</label>
+            <textarea id="f-message" rows="4" placeholder="Bonjour, je souhaite obtenir des informations sur..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            <span data-fr="Envoyer ma demande →" data-ar="إرسال طلبي ←">Envoyer ma demande →</span>
+          </button>
+          <div class="form-success" id="form-success" hidden>
+            <span>✅</span>
+            <span data-fr="Demande envoyée avec succès! Nous vous répondons dans les 24h." data-ar="تم إرسال طلبك بنجاح! سنرد عليك خلال 24 ساعة.">Demande envoyée avec succès! Nous vous répondons dans les 24h.</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact-info-panel" data-aos="fade-left">
+
+        <div class="info-block">
+          <div class="info-icon">📞</div>
+          <div>
+            <h4 data-fr="Appelez-nous" data-ar="اتصل بنا">Appelez-nous</h4>
+            <a href="tel:0665858788" class="tel-link big">06 65 85 87 88</a>
+            <a href="tel:0604702922" class="tel-link big">06 04 70 29 22</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">☎️</div>
+          <div>
+            <h4 data-fr="Fixe" data-ar="هاتف ثابت">Fixe</h4>
+            <a href="tel:0520810850" class="tel-link big">05 20 81 08 50</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="tel-link big">+212 604-702922</a>
+            <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="btn-wa-contact">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-fr="Écrire sur WhatsApp" data-ar="راسلنا على واتساب">Écrire sur WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">📍</div>
+          <div>
+            <h4 data-fr="Notre bureau" data-ar="مكتبنا">Notre bureau</h4>
+            <p>Bureau N°9, 3ème étage, Capital Center, Imm B, Bouskoura 20180</p>
+            <a href="https://maps.app.goo.gl/wVngdJNxRBBtoyzd6" target="_blank" rel="noopener" class="maps-link" data-fr="Voir sur Maps →" data-ar="عرض على الخريطة ←">Voir sur Maps →</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-icon">🕐</div>
+          <div>
+            <h4 data-fr="Horaires" data-ar="أوقات العمل">Horaires</h4>
+            <p data-fr="Lun–Ven : 9h00 – 18h00" data-ar="الاثنين–الجمعة: 9:00 – 18:00">Lun–Ven : 9h00 – 18h00</p>
+            <p data-fr="Sam : 9h00 – 13h00" data-ar="السبت: 9:00 – 13:00">Sam : 9h00 – 13h00</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="assets/images/logobg.png" alt="Amany Trip" width="160" height="65" loading="lazy" decoding="async">
+          <p data-fr="Votre agence de voyage certifiée au Maroc. Des voyages inoubliables depuis plus de 10 ans." data-ar="وكالة سفر معتمدة في المغرب. رحلات لا تُنسى منذ أكثر من 10 سنوات.">
+            Votre agence de voyage certifiée au Maroc. Des voyages inoubliables depuis plus de 10 ans.
+          </p>
+          <div class="footer-socials">
+            <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="social-icon whatsapp" aria-label="WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-icon instagram" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-fr="Destinations" data-ar="الوجهات">Destinations</h4>
+          <ul>
+            <li><a href="#destinations">Istanbul 🇹🇷</a></li>
+            <li><a href="#destinations">Égypte 🇪🇬</a></li>
+            <li><a href="#destinations">Dubaï 🇦🇪</a></li>
+            <li><a href="#destinations">Omra 🕌</a></li>
+            <li><a href="#destinations">Bali × KL 🌴</a></li>
+            <li><a href="#destinations">Tunisie 🇹🇳</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-fr="Liens utiles" data-ar="روابط مفيدة">Liens utiles</h4>
+          <ul>
+            <li><a href="#home"         data-fr="Accueil"      data-ar="الرئيسية">Accueil</a></li>
+            <li><a href="#about"        data-fr="À propos"     data-ar="من نحن">À propos</a></li>
+            <li><a href="#contact"      data-fr="Contact"      data-ar="اتصل بنا">Contact</a></li>
+            <li><a href="#contact"      data-fr="Réserver"     data-ar="احجز">Réserver</a></li>
+            <li><a href="https://wa.me/212604702922" target="_blank" rel="noopener" data-fr="WhatsApp" data-ar="واتساب">WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-fr="Contact" data-ar="اتصل بنا">Contact</h4>
+          <ul class="footer-contact-list">
+            <li>📞 <a href="tel:0665858788">06 65 85 87 88</a></li>
+            <li>📞 <a href="tel:0604702922">06 04 70 29 22</a></li>
+            <li>☎️ <a href="tel:0520810850">05 20 81 08 50</a></li>
+            <li>📍 Bouskoura, Casablanca</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>
+        <span data-fr="© 2025 Amany Trip — Tous droits réservés. Site réalisé par" data-ar="© 2025 أماني تريب — جميع الحقوق محفوظة. الموقع من تصميم">© 2025 Amany Trip — Tous droits réservés. Site réalisé par</span>
+        <a href="https://devline.ma" target="_blank" rel="noopener" class="devline-link">devline.ma</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════ FLOATING WHATSAPP ══════════════════ -->
+<a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="float-wa" id="float-wa" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="float-wa-tip" data-fr="Réservez via WhatsApp" data-ar="احجز عبر واتساب">Réservez via WhatsApp</span>
+</a>
+
+<!-- GSAP: defer (used for hero animation on load) -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Swiper: lazy-load when testimonials section is near viewport -->
+<script>
+(function(){
+  var loaded = false;
+  var io = new IntersectionObserver(function(entries){
+    if(loaded || !entries[0].isIntersecting) return;
+    loaded = true;
+    io.disconnect();
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+    js.onload = function(){ if(typeof initSwiper === 'function') initSwiper(); };
+    document.body.appendChild(js);
+  }, { rootMargin: '200px' });
+  var el = document.querySelector('.testi-swiper');
+  if(el) io.observe(el);
+})();
+</script>
+
+<!-- AOS: load on first scroll so it's ready for all animated sections -->
+<script>
+(function(){
+  var loaded = false;
+  function loadAOS() {
+    if (loaded) return;
+    loaded = true;
+    window.removeEventListener('scroll', loadAOS, { passive: true });
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js';
+    js.onload = function(){ if(typeof initAOS === 'function') initAOS(); };
+    document.body.appendChild(js);
+  }
+  window.addEventListener('scroll', loadAOS, { passive: true });
+})();
+</script>
+
+<!-- Main JS: defer -->
+<script defer src="js/main.js"></script>
+</body>
+</html>
