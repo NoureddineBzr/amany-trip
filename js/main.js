@@ -38,8 +38,13 @@ function applyLanguage(lang) {
 
   // 1. Switch all translatable elements
   document.querySelectorAll('[data-fr], [data-ar]').forEach(el => {
-    const val = el.getAttribute(`data-${lang}`);
+    let val = el.getAttribute(`data-${lang}`);
     if (val === null) return;
+    
+    // As requested: dynamically swap arrows based on language
+    if (lang === 'ar' && val.includes('→')) val = val.replace(/→/g, '←');
+    if (lang === 'fr' && val.includes('←')) val = val.replace(/←/g, '→');
+
     const tag = el.tagName;
     if (tag === 'INPUT' || tag === 'TEXTAREA') {
       el.placeholder = val;

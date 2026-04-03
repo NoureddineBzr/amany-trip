@@ -611,51 +611,65 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .testi-card {
   background: #fff;
-  border-radius: var(--radius);
-  padding: 32px;
-  position: relative;
-  box-shadow: var(--shadow);
+  border-radius: 18px;
+  padding: 22px 24px;
+  border: 1px solid rgba(0,0,0,.07);
+  box-shadow: 0 2px 16px rgba(0,0,0,.05);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   height: 100%;
   transition: var(--tr);
 }
-.testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-
-.testi-quote {
-  font-size: 5rem;
-  line-height: 1;
-  color: var(--accent);
-  font-family: Georgia, serif;
-  margin-bottom: -12px;
-  opacity: .8;
+.testi-card:hover {
+  border-color: rgba(26,58,143,.2);
+  box-shadow: 0 8px 28px rgba(0,0,0,.1);
+  transform: translateY(-3px);
 }
 
-.testi-stars { font-size: 1rem; color: var(--yellow); letter-spacing: 2px; margin-bottom: 14px; }
-
-.testi-card > p {
-  font-size: .9rem;
-  color: var(--text);
-  line-height: 1.75;
-  margin-bottom: 22px;
-  font-style: italic;
+/* Card top row: author info + Google G */
+.testi-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-author { display: flex; align-items: center; gap: 10px; }
 
 .testi-avatar {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 800;
   font-size: .95rem;
+  color: #fff;
   flex-shrink: 0;
 }
 
-.testi-author strong { display: block; font-size: .88rem; font-weight: 700; color: var(--dark); }
-.testi-author span  { font-size: .76rem; color: var(--muted); }
+.testi-info strong { display: block; font-size: .88rem; font-weight: 700; color: var(--dark); }
+
+.testi-stars-wrap { display: flex; align-items: center; gap: 5px; margin-top: 2px; }
+.testi-stars { color: #FBBC04; font-size: .88rem; letter-spacing: 1.5px; }
+.testi-date  { font-size: .73rem; color: var(--muted); }
+
+.testi-google { flex-shrink: 0; opacity: .8; }
+
+/* Quote text — clamped to 4 lines so all cards stay same height */
+.testi-text {
+  font-size: .87rem;
+  color: #444;
+  line-height: 1.78;
+  font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+  padding-left: 1px;
+}
 
 .swiper-button-prev, .swiper-button-next {
   color: var(--primary) !important;
@@ -1173,9 +1187,8 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
   .why-card p      { font-size: .78rem; }
 
   /* Testimonials */
-  .testi-card      { padding: 22px 18px; }
-  .testi-quote     { font-size: 3.5rem; margin-bottom: -8px; }
-  .testi-card > p  { font-size: .85rem; line-height: 1.65; margin-bottom: 16px; }
+  .testi-card      { padding: 18px 20px; gap: 12px; }
+  .testi-text      { font-size: .84rem; }
   .reviews-cta     { padding: 0 8px; }
   .btn-all-reviews { padding: 12px 18px; gap: 10px; font-size: .84rem; border-radius: 14px; }
 
@@ -1249,12 +1262,11 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
   .why-card-text   { flex: 1; }
 
   /* Testimonials */
-  .testi-card      { padding: 20px 16px; }
-  .testi-quote     { font-size: 3rem; }
-  .testi-card > p  { font-size: .82rem; }
-  .testi-stars     { font-size: .9rem; letter-spacing: 1px; }
+  .testi-card      { padding: 16px 18px; gap: 10px; }
+  .testi-text      { font-size: .82rem; }
+  .testi-stars     { font-size: .84rem; letter-spacing: 1px; }
   .testi-avatar    { width: 38px; height: 38px; font-size: .85rem; }
-  .testi-author strong { font-size: .82rem; }
+  .testi-info strong { font-size: .82rem; }
   .btn-all-reviews { width: 100%; justify-content: center; border-radius: 12px; }
 
   /* About stats */
