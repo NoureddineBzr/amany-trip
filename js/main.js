@@ -216,6 +216,15 @@ window.initSwiper = function initSwiper() {
       640:  { slidesPerView: 1 },
       768:  { slidesPerView: 2 },
       1024: { slidesPerView: 3 }
+    },
+    on: {
+      init: function () {
+        setTimeout(function() {
+          if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+          }
+        }, 300);
+      }
     }
   });
 }
