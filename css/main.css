@@ -468,7 +468,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* Left badge (label) */
 .left-badge {
   position: absolute;
-  top: 12px; left: 12px;
+  bottom: 12px; left: 12px;
   background: var(--accent);
   color: #fff;
   font-size: .7rem;
@@ -1222,6 +1222,7 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
   .footer-top        { padding: 48px 0 32px; }
   .footer-brand      { text-align: center; }
   .footer-brand p    { max-width: 100%; margin: 0 auto 18px; }
+  .footer-logo       { display: block; margin: 0 auto 14px; }
   .footer-socials    { justify-content: center; }
   .footer-col        { text-align: center; }
   .footer-col ul     { align-items: center; }
