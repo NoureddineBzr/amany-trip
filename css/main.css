@@ -126,7 +126,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin: 0 auto;
 }
 
-.nav-logo img { height: 58px; }
+.nav-logo img { height: 58px; width: auto; }
+
+/* Footer logo */
+.footer-logo { height: 60px; width: auto; margin-bottom: 14px; }
+
+/* Location card logo */
+.location-logo { height: 52px; width: auto; }
 
 .nav-links {
   display: flex;
@@ -1158,6 +1164,10 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
    RESPONSIVE — Mobile 768px
 ══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  .nav-logo img  { height: 50px; }
+  .footer-logo   { height: 54px; }
+  .location-logo { height: 46px; }
+
   .section { padding: 64px 0; }
 
   /* Section headers */
@@ -1230,7 +1240,9 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
 @media (max-width: 480px) {
   .container       { padding: 0 16px; }
   .nav-container   { padding: 10px 16px; }
-  .nav-logo img    { height: 48px; }
+  .nav-logo img    { height: 44px; }
+  .footer-logo     { height: 48px; }
+  .location-logo   { height: 42px; }
 
   /* Hero */
   .hero-content    { padding: 90px 16px 70px; }
@@ -1277,6 +1289,7 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
   .contact-info-panel { padding: 0; }
 
   /* Footer */
+  .footer-logo       { height: 46px; }
   .footer-brand img  { height: 54px; }
   .footer-col h4     { font-size: .75rem; }
   .social-icon       { width: 34px; height: 34px; }
