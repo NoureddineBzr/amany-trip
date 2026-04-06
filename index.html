@@ -24,6 +24,8 @@
   <!-- Preload critical assets -->
   <link rel="preload" href="assets/images/logo.png" as="image" fetchpriority="high">
   <link rel="preload" href="assets/images/white logo.png" as="image">
+  <link rel="preload" href="assets/images/coverpc.png" as="image" media="(min-width:769px)">
+  <link rel="preload" href="assets/images/covermobile.png" as="image" media="(max-width:768px)">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Tajawal:wght@400;700;800&display=swap" as="style">
 
   <!-- Fonts -->
@@ -163,7 +165,10 @@
 
 <!-- ══════════════════ HERO ══════════════════ -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <img src="assets/images/coverpc.png" class="hero-bg-desktop" alt="" aria-hidden="true" fetchpriority="high">
+    <img src="assets/images/covermobile.png" class="hero-bg-mobile" alt="" aria-hidden="true" fetchpriority="high">
+  </div>
   <div class="airplane-float" aria-hidden="true">
     <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
       <path d="M10 40 L170 5 L140 40 L170 75 Z" fill="rgba(255,255,255,0.06)"/>

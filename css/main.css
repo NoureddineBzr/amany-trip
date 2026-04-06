@@ -259,6 +259,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     radial-gradient(circle at 85% 75%, rgba(204,31,74,.07) 0%, transparent 50%);
 }
 
+/* Hero background images */
+.hero-bg-desktop,
+.hero-bg-mobile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.hero-bg-mobile { display: none; }
+
+.hero-bg:has(.hero-bg-desktop) {
+  animation: none;
+}
+
+.hero-bg-desktop ~ * { z-index: 1; }
+
+@media (max-width: 768px) {
+  .hero-bg-desktop { display: none; }
+  .hero-bg-mobile  { display: block; }
+  .hero-bg { animation: none; }
+}
+
+.hero-bg::after {
+  background: linear-gradient(180deg, rgba(10,25,80,.55) 0%, rgba(10,25,80,.35) 100%);
+  z-index: 1;
+}
+
 /* Floating airplane */
 .airplane-float {
   position: absolute;
