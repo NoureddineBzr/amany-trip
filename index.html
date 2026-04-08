@@ -111,6 +111,8 @@
   <!-- Non-critical CSS: loaded async, no render blocking -->
   <link rel="preload" href="css/main.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="css/main.css?v=1.1"></noscript>
+  <link rel="preload" href="css/blog.css?v=1.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blog.css?v=1.0"></noscript>
   <link rel="stylesheet" href="css/rtl.css?v=1.1" id="rtl-stylesheet" disabled>
 </head>
 <body>
@@ -128,6 +130,7 @@
       <li><a href="#pourquoi"     class="nav-link" data-fr="Pourquoi nous" data-ar="لماذا نحن">Pourquoi nous</a></li>
       <li><a href="#about"        class="nav-link" data-fr="À propos"     data-ar="من نحن">À propos</a></li>
       <li><a href="#contact"      class="nav-link" data-fr="Réserver"     data-ar="احجز">Réserver</a></li>
+      <li><a href="blog.html"    class="nav-link" data-fr="Blog"         data-ar="المدونة">Blog</a></li>
     </ul>
 
     <div class="nav-actions">
@@ -153,6 +156,7 @@
       <li><a href="#pourquoi"     class="nav-link mobile-link" data-fr="Pourquoi nous" data-ar="لماذا نحن">Pourquoi nous</a></li>
       <li><a href="#about"        class="nav-link mobile-link" data-fr="À propos"      data-ar="من نحن">À propos</a></li>
       <li><a href="#contact"      class="nav-link mobile-link" data-fr="Réserver"      data-ar="احجز">Réserver</a></li>
+      <li><a href="blog.html"    class="nav-link mobile-link" data-fr="Blog"          data-ar="المدونة">Blog</a></li>
       <li>
         <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="btn-whatsapp mobile-wa">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -824,6 +828,64 @@
 
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BLOG TEASER ══════════════════ -->
+<section class="blog-teaser" aria-label="Blog" id="blog">
+  <div class="container">
+
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag" data-fr="Notre Blog" data-ar="مدونتنا">Notre Blog</span>
+      <h2 class="section-title" data-fr="Conseils et guides de voyage" data-ar="نصائح وأدلة السفر">
+        Conseils et guides de voyage
+      </h2>
+      <p class="section-sub" data-fr="Des articles pour préparer votre voyage au mieux" data-ar="مقالات لمساعدتك في التحضير لرحلتك">
+        Des articles pour préparer votre voyage au mieux
+      </p>
+    </div>
+
+    <!-- Featured article card -->
+    <div class="blog-featured-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="blog-card-image blog-card-image--photo" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 768px)" srcset="assets/images/omra-blog-phone.jpg">
+          <img src="assets/images/omra-blog-pc.jpg" alt="Omra avec Amany Trip" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="blog-card-content">
+        <span class="blog-category" data-fr="Omra &amp; Pèlerinage" data-ar="العمرة والحج">Omra &amp; Pèlerinage</span>
+        <h3 data-fr="Réussir votre Omra avec Amany Trip — Le guide complet"
+            data-ar="نجاح عمرتك مع أماني تريب — الدليل الشامل">
+          Réussir votre Omra avec Amany Trip — Le guide complet
+        </h3>
+        <p data-fr="Tout ce que vous devez savoir pour préparer votre voyage spirituel : documents, forfaits, conseils pratiques..."
+           data-ar="كل ما تحتاج معرفته للتحضير لرحلتك الروحية: الوثائق، الباقات، النصائح العملية...">
+          Tout ce que vous devez savoir pour préparer votre voyage spirituel : documents, forfaits, conseils pratiques...
+        </p>
+        <div class="blog-card-meta">
+          <span class="meta-item">
+            <svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span data-fr="Avril 2025" data-ar="أبريل 2025">Avril 2025</span>
+          </span>
+          <span class="meta-item">
+            <svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-fr="8 min de lecture" data-ar="8 دقائق قراءة">8 min de lecture</span>
+          </span>
+        </div>
+        <a href="blog/omra-avec-amany-trip.html" class="btn btn-primary">
+          <span data-fr="Lire l'article →" data-ar="اقرأ المقال ←">Lire l'article →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- See all articles -->
+    <div style="text-align:center; margin-top: 2.5rem;" data-aos="fade-up" data-aos-delay="200">
+      <a href="blog.html" class="btn btn-outline" style="color:var(--primary);border-color:rgba(26,58,143,.35);">
+        <span data-fr="Voir tous les articles →" data-ar="عرض جميع المقالات ←">Voir tous les articles →</span>
+      </a>
+    </div>
+
   </div>
 </section>
 

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Amany Trip — Conseils, Guides et Actualités Voyages</title>
+  <meta name="description" content="Retrouvez tous nos guides et conseils de voyage : Omra, Istanbul, Dubaï, Égypte. Préparez votre voyage avec Amany Trip.">
+  <meta property="og:title" content="Blog Amany Trip — Conseils & Guides de Voyage">
+  <meta property="og:description" content="Retrouvez nos guides et conseils de voyage — Omra, Istanbul, Dubaï, Égypte.">
+  <meta property="og:image" content="assets/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://amanytrip.com/blog.html">
+  <link rel="icon" href="assets/images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <link rel="preload" href="assets/images/logo.png" as="image" fetchpriority="high">
+  <link rel="preload" href="assets/images/white logo.png" as="image">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Tajawal:wght@400;700;800&display=swap" as="style">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <!-- Inline critical CSS (navbar — above the fold) -->
+  <style>
+    :root{--primary:#1a3a8f;--secondary:#2563c8;--accent:#cc1f4a;--yellow:#f5c518;--wa:#25D366;--white:#fff;--light:#f8f9fa;--dark:#1a1a2e;--text:#333;--muted:#666;--radius:16px;--radius-sm:8px;--tr:0.3s cubic-bezier(.4,0,.2,1);--font:'Poppins',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);color:var(--text);background:#fff;overflow-x:hidden;line-height:1.6}
+    img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}button{cursor:pointer;border:none;background:none;font-family:inherit}
+    .container{max-width:1240px;margin:0 auto;padding:0 24px}
+    .navbar{position:fixed;inset:0 0 auto 0;z-index:1000;background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.07);transition:box-shadow var(--tr)}
+    .nav-container{display:flex;align-items:center;justify-content:space-between;padding:10px 32px;max-width:1400px;margin:0 auto}
+    .nav-logo img{height:58px}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-link{font-size:.88rem;font-weight:500;color:var(--dark);padding:7px 13px;border-radius:8px;transition:var(--tr);position:relative}
+    .nav-link::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--accent);border-radius:2px;transition:width var(--tr)}
+    .nav-link:hover::after,.nav-link.active::after{width:55%}
+    .nav-link:hover{color:var(--accent)!important}
+    .nav-link.blog-active{color:var(--accent)!important}
+    .nav-link.blog-active::after{width:55%}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .lang-toggle{display:flex;align-items:center;gap:5px;background:var(--light);border:1.5px solid rgba(26,58,143,.18);color:var(--primary);padding:6px 15px;border-radius:100px;font-size:.83rem;font-weight:600;transition:var(--tr);white-space:nowrap;min-width:115px;justify-content:center;cursor:pointer;font-family:var(--font)}
+    .lang-toggle:hover{background:rgba(26,58,143,.07)}
+    .lang-divider{opacity:.4}.lang-fr.active,.lang-ar.active{color:var(--accent);font-weight:700}
+    .btn-whatsapp{display:inline-flex;align-items:center;gap:8px;background:var(--wa);color:#fff;padding:9px 18px;border-radius:100px;font-size:.84rem;font-weight:600;transition:var(--tr);box-shadow:0 4px 14px rgba(37,211,102,.3);white-space:nowrap}
+    .btn-whatsapp:hover{background:#1dba58;transform:translateY(-2px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;padding:6px}
+    .hamburger span{display:block;width:24px;height:2.5px;background:var(--dark);border-radius:2px;transition:var(--tr)}
+    .mobile-menu{background:#fff;border-top:1px solid rgba(0,0,0,.06);max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+    .mobile-menu.open{max-height:580px}
+    .mobile-menu ul{display:flex;flex-direction:column;gap:2px;padding:16px 28px 24px}
+    .mobile-link{display:block;color:var(--dark)!important;font-size:.97rem;font-weight:500;padding:11px 0;border-bottom:1px solid rgba(0,0,0,.04)}
+    .float-wa{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;z-index:9999;box-shadow:0 6px 22px rgba(37,211,102,.45);transition:var(--tr);animation:pulseWa 2.5s ease-in-out infinite;opacity:0;pointer-events:none;transform:scale(.7)}
+    .float-wa.visible{opacity:1;pointer-events:all;transform:scale(1)}
+    .float-wa:hover{transform:scale(1.1)!important}
+    @keyframes pulseWa{0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.45)}50%{box-shadow:0 6px 22px rgba(37,211,102,.45),0 0 0 12px rgba(37,211,102,.12)}}
+    .float-wa-tip{position:absolute;right:70px;background:var(--dark);color:#fff;font-size:.76rem;font-weight:600;padding:7px 13px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:var(--tr)}
+    .float-wa-tip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:6px solid transparent;border-left-color:var(--dark)}
+    .float-wa:hover .float-wa-tip{opacity:1}
+    @media(max-width:1024px){.nav-links,.btn-whatsapp:not(.mobile-wa){display:none}.hamburger{display:flex}.mobile-menu{display:block}}
+    @media(max-width:640px){.nav-container{padding:10px 18px}.float-wa{bottom:18px;right:18px}}
+  </style>
+
+  <link rel="preload" href="css/main.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/main.css?v=1.1"></noscript>
+  <link rel="preload" href="css/blog.css?v=1.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/blog.css?v=1.0"></noscript>
+  <link rel="stylesheet" href="css/rtl.css?v=1.1" id="rtl-stylesheet" disabled>
+</head>
+<body>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/logo.png" alt="Amany Trip" width="120" height="58" loading="eager" fetchpriority="high" decoding="sync">
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#home"         class="nav-link" data-fr="Accueil"       data-ar="الرئيسية">Accueil</a></li>
+      <li><a href="index.html#destinations" class="nav-link" data-fr="Destinations"  data-ar="الوجهات">Destinations</a></li>
+      <li><a href="index.html#pourquoi"     class="nav-link" data-fr="Pourquoi nous" data-ar="لماذا نحن">Pourquoi nous</a></li>
+      <li><a href="index.html#about"        class="nav-link" data-fr="À propos"      data-ar="من نحن">À propos</a></li>
+      <li><a href="index.html#contact"      class="nav-link" data-fr="Réserver"      data-ar="احجز">Réserver</a></li>
+      <li><a href="blog.html"               class="nav-link blog-active" data-fr="Blog" data-ar="المدونة">Blog</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Changer la langue">
+        <span class="lang-fr active">FR</span>
+        <span class="lang-divider">|</span>
+        <span class="lang-ar">العربية</span>
+      </button>
+      <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-fr="Réserver via WhatsApp" data-ar="احجز عبر واتساب">Réserver via WhatsApp</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="index.html#home"         class="nav-link mobile-link" data-fr="Accueil"       data-ar="الرئيسية">Accueil</a></li>
+      <li><a href="index.html#destinations" class="nav-link mobile-link" data-fr="Destinations"  data-ar="الوجهات">Destinations</a></li>
+      <li><a href="index.html#pourquoi"     class="nav-link mobile-link" data-fr="Pourquoi nous" data-ar="لماذا نحن">Pourquoi nous</a></li>
+      <li><a href="index.html#about"        class="nav-link mobile-link" data-fr="À propos"      data-ar="من نحن">À propos</a></li>
+      <li><a href="index.html#contact"      class="nav-link mobile-link" data-fr="Réserver"      data-ar="احجز">Réserver</a></li>
+      <li><a href="blog.html"               class="nav-link mobile-link" data-fr="Blog"          data-ar="المدونة">Blog</a></li>
+      <li>
+        <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="btn-whatsapp mobile-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span data-fr="Réserver via WhatsApp" data-ar="احجز عبر واتساب">Réserver via WhatsApp</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══════════════════ BLOG HERO ══════════════════ -->
+<section class="blog-hero" aria-label="Blog">
+  <div class="blog-hero-inner container">
+    <div class="breadcrumb">
+      <a href="index.html" data-fr="Accueil" data-ar="الرئيسية">Accueil</a>
+      <span class="bc-sep">›</span>
+      <span data-fr="Blog" data-ar="المدونة">Blog</span>
+    </div>
+    <h1 data-fr="Notre Blog" data-ar="مدونتنا">Notre Blog</h1>
+    <p data-fr="Conseils, guides et actualités voyages" data-ar="نصائح وأدلة وأخبار السفر">Conseils, guides et actualités voyages</p>
+  </div>
+</section>
+
+<!-- ══════════════════ BLOG LISTING ══════════════════ -->
+<section class="blog-listing">
+  <div class="container">
+
+    <div class="blog-grid">
+
+      <!-- Card 1: Omra — Featured, full width -->
+      <article class="blog-card-featured" data-aos="fade-up">
+        <div class="blog-card-img blog-card-img--photo">
+          <picture>
+            <source media="(max-width: 768px)" srcset="assets/images/omra-blog-phone.jpg">
+            <img src="assets/images/omra-blog-pc.jpg" alt="Omra avec Amany Trip" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="blog-card-body">
+          <div>
+            <span class="badge-featured">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              <span data-fr="Article à la une" data-ar="مقال مميز">Article à la une</span>
+            </span>
+          </div>
+          <span class="blog-category" data-fr="Omra &amp; Pèlerinage" data-ar="العمرة والحج">Omra &amp; Pèlerinage</span>
+          <h3 data-fr="Réussir votre Omra avec Amany Trip — Le guide complet"
+              data-ar="نجاح عمرتك مع أماني تريب — الدليل الشامل">
+            Réussir votre Omra avec Amany Trip — Le guide complet
+          </h3>
+          <p data-fr="Tout ce que vous devez savoir pour préparer votre Omra : vols directs, hébergement à La Mecque et Médine, documents requis, et nos forfaits exclusifs."
+             data-ar="كل ما تحتاج معرفته للتحضير لعمرتك: الرحلات المباشرة، الإقامة في مكة المكرمة والمدينة، الوثائق المطلوبة وباقاتنا الحصرية.">
+            Tout ce que vous devez savoir pour préparer votre Omra : vols directs, hébergement à La Mecque et Médine, documents requis, et nos forfaits exclusifs.
+          </p>
+          <div class="blog-card-meta">
+            <span class="meta-item">
+              <svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span data-fr="Avril 2025" data-ar="أبريل 2025">Avril 2025</span>
+            </span>
+            <span class="meta-item">
+              <svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span data-fr="8 min de lecture" data-ar="8 دقائق قراءة">8 min de lecture</span>
+            </span>
+          </div>
+          <a href="blog/omra-avec-amany-trip.html" class="btn-card-primary">
+            <span data-fr="Lire l'article →" data-ar="اقرأ المقال ←">Lire l'article →</span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="assets/images/white logo.png" alt="Amany Trip" class="footer-logo" loading="lazy" decoding="async">
+          <p data-fr="Votre agence de voyage certifiée au Maroc. Des voyages inoubliables depuis plus de 10 ans."
+             data-ar="وكالة سفر معتمدة في المغرب. رحلات لا تُنسى منذ أكثر من 10 سنوات.">
+            Votre agence de voyage certifiée au Maroc. Des voyages inoubliables depuis plus de 10 ans.
+          </p>
+          <div class="footer-socials">
+            <a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="social-icon whatsapp" aria-label="WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61581615808084" class="social-icon facebook" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/amany_trip/" class="social-icon instagram" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-fr="Destinations" data-ar="الوجهات">Destinations</h4>
+          <ul>
+            <li><a href="index.html#destinations">Istanbul</a></li>
+            <li><a href="index.html#destinations">Égypte</a></li>
+            <li><a href="index.html#destinations">Dubaï</a></li>
+            <li><a href="index.html#destinations">Omra</a></li>
+            <li><a href="index.html#destinations">Bali × KL</a></li>
+            <li><a href="index.html#destinations">Tunisie</a></li>
+            <li><a href="index.html#destinations">Thaïlande</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-fr="Liens utiles" data-ar="روابط مفيدة">Liens utiles</h4>
+          <ul>
+            <li><a href="index.html#home"    data-fr="Accueil"   data-ar="الرئيسية">Accueil</a></li>
+            <li><a href="index.html#about"   data-fr="À propos"  data-ar="من نحن">À propos</a></li>
+            <li><a href="index.html#contact" data-fr="Contact"   data-ar="اتصل بنا">Contact</a></li>
+            <li><a href="index.html#contact" data-fr="Réserver"  data-ar="احجز">Réserver</a></li>
+            <li><a href="blog.html"          data-fr="Blog"      data-ar="المدونة">Blog</a></li>
+            <li><a href="https://wa.me/212604702922" target="_blank" rel="noopener" data-fr="WhatsApp" data-ar="واتساب">WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-fr="Contact" data-ar="اتصل بنا">Contact</h4>
+          <ul class="footer-contact-list">
+            <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 13 14.83l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg> <a href="tel:0665858788">06 65 85 87 88</a></li>
+            <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 13 14.83l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg> <a href="tel:0604702922">06 04 70 29 22</a></li>
+            <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91A16 16 0 0 0 13 14.83l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg> <a href="tel:0520810850">05 20 81 08 50</a></li>
+            <li>📍 Bouskoura, Casablanca</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>
+        <span data-fr="© 2025 Amany Trip — Tous droits réservés. Site réalisé par"
+              data-ar="© 2025 أماني تريب — جميع الحقوق محفوظة. الموقع من تصميم">
+          © 2025 Amany Trip — Tous droits réservés. Site réalisé par
+        </span>
+        <a href="https://devline.ma" target="_blank" rel="noopener" class="devline-link">devline.ma</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════ FLOATING WHATSAPP ══════════════════ -->
+<a href="https://wa.me/212604702922" target="_blank" rel="noopener" class="float-wa" id="float-wa" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="float-wa-tip" data-fr="Réservez via WhatsApp" data-ar="احجز عبر واتساب">Réservez via WhatsApp</span>
+</a>
+
+<!-- AOS: load on first scroll -->
+<script>
+(function(){
+  var loaded = false;
+  function loadAOS() {
+    if (loaded) return;
+    loaded = true;
+    window.removeEventListener('scroll', loadAOS, { passive: true });
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js';
+    js.onload = function(){ if(typeof initAOS === 'function') initAOS(); };
+    document.body.appendChild(js);
+  }
+  window.addEventListener('scroll', loadAOS, { passive: true });
+})();
+</script>
+
+<!-- Main JS -->
+<script defer src="js/main.js?v=1.1"></script>
+</body>
+</html>
