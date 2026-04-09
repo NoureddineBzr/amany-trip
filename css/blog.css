@@ -910,6 +910,21 @@ html[dir="rtl"] .article-content .list-included li::before {
   right: 0;
 }
 
+/* Article inline figure / image */
+.article-figure {
+  margin: 32px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.10);
+}
+
+.article-figure picture,
+.article-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* CTA box h3 icon */
 .article-content .cta-box h3 {
   display: flex;
