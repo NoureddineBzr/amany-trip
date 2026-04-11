@@ -1332,6 +1332,118 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
 }
 
 /* ══════════════════════════════════════════════════════════
+   VISA SECTION
+══════════════════════════════════════════════════════════ */
+.visa-section { background: #f8f9ff; }
+
+.visa-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+
+/* Description paragraph */
+.visa-desc {
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+/* ══════════════════════════════════════════════════════════
+   VISA MODAL
+══════════════════════════════════════════════════════════ */
+.visa-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 16px;
+}
+
+.visa-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalIn .3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(.95) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.visa-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--tr);
+  color: var(--dark);
+  z-index: 1;
+  font-family: var(--font);
+}
+.visa-modal-close:hover { background: #e0e0e0; transform: scale(1.1); }
+
+.visa-modal-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 24px;
+  padding-right: 40px;
+}
+
+#visa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Reuse .form-success for visa */
+#visa-form-success { display: flex; }
+#visa-form-success[hidden] { display: none; }
+
+/* Responsive — Tablet ≤1024px */
+@media (max-width: 1024px) {
+  .visa-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+
+/* Responsive — Mobile ≤768px */
+@media (max-width: 768px) {
+  .visa-grid        { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .visa-modal       { padding: 28px 20px; border-radius: 16px; }
+  .visa-modal-title { font-size: 1.25rem; }
+}
+
+/* Responsive — Small Mobile ≤480px */
+@media (max-width: 480px) {
+  .visa-grid        { grid-template-columns: 1fr; }
+  .visa-modal       { padding: 24px 16px; border-radius: 14px; max-height: 95vh; }
+  .visa-modal-title { font-size: 1.15rem; margin-bottom: 18px; }
+}
+
+/* ══════════════════════════════════════════════════════════
    SCROLL OFFSET
 ══════════════════════════════════════════════════════════ */
 :target { scroll-margin-top: 88px; }

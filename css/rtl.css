@@ -139,3 +139,23 @@ html[dir="rtl"] .float-wa { right: auto; left: 30px; }
 @media (max-width: 480px) {
   html[dir="rtl"] .why-card      { text-align: right; }
 }
+
+/* ── Visa section ─────────────────────────────────────────── */
+html[dir="rtl"] .visa-card .dest-body { direction: rtl; text-align: right; }
+html[dir="rtl"] .visa-card .dest-highlights li {
+  padding-left: 0;
+  padding-right: 22px;
+}
+html[dir="rtl"] .visa-card .dest-highlights li::before {
+  left: auto;
+  right: 0;
+}
+
+
+/* ── Visa modal ───────────────────────────────────────────── */
+html[dir="rtl"] .visa-modal        { text-align: right; direction: rtl; }
+html[dir="rtl"] .visa-modal-close  { right: auto; left: 16px; }
+html[dir="rtl"] .visa-modal-title  { padding-right: 0; padding-left: 40px; }
+html[dir="rtl"] #visa-form input,
+html[dir="rtl"] #visa-form select  { text-align: right; direction: rtl; }
+html[dir="rtl"] .visa-modal .form-group label { text-align: right; display: block; letter-spacing: 0; }

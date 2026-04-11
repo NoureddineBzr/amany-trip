@@ -298,6 +298,108 @@ document.getElementById('contact-form')?.addEventListener('submit', e => {
 });
 
 /* ══════════════════════════════════════════════════════════
+   VISA MODAL
+══════════════════════════════════════════════════════════ */
+function openVisaModal(visaType) {
+  const overlay = document.getElementById('visa-modal-overlay');
+  const select  = document.getElementById('visa-select');
+  if (!overlay || !select) return;
+
+  // Pre-select the visa type matching the card clicked
+  select.value = visaType;
+
+  // Set today as min date for departure
+  const today = new Date().toISOString().split('T')[0];
+  const departInput = document.getElementById('visa-depart-date');
+  if (departInput) {
+    departInput.min = today;
+    if (!departInput.value) departInput.value = '';
+  }
+
+  overlay.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVisaModal() {
+  const overlay = document.getElementById('visa-modal-overlay');
+  if (overlay) overlay.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Close button
+document.getElementById('visa-modal-close')?.addEventListener('click', closeVisaModal);
+
+// Click outside overlay to close
+document.getElementById('visa-modal-overlay')?.addEventListener('click', function(e) {
+  if (e.target === this) closeVisaModal();
+});
+
+// Departure date changes → update return min + clear invalid return
+document.getElementById('visa-depart-date')?.addEventListener('change', function() {
+  const returnInput = document.getElementById('visa-return-date');
+  if (!returnInput || !this.value) return;
+  const nextDay = new Date(this.value);
+  nextDay.setDate(nextDay.getDate() + 1);
+  returnInput.min = nextDay.toISOString().split('T')[0];
+  if (returnInput.value && returnInput.value <= this.value) returnInput.value = '';
+  returnInput.setCustomValidity('');
+});
+
+// Return date validation
+document.getElementById('visa-return-date')?.addEventListener('change', function() {
+  const depart = document.getElementById('visa-depart-date')?.value;
+  if (depart && this.value && this.value <= depart) {
+    this.setCustomValidity(
+      document.documentElement.lang === 'ar'
+        ? 'يجب أن يكون تاريخ العودة بعد تاريخ المغادرة'
+        : 'La date de retour doit être après la date de départ'
+    );
+  } else {
+    this.setCustomValidity('');
+  }
+});
+
+// Visa form submit → WhatsApp
+document.getElementById('visa-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!this.checkValidity()) { this.reportValidity(); return; }
+
+  const visaSelect  = document.getElementById('visa-select');
+  const persons     = document.getElementById('visa-persons')?.value     || '';
+  const depart      = document.getElementById('visa-depart-date')?.value || '';
+  const retour      = document.getElementById('visa-return-date')?.value || '';
+  const name        = document.getElementById('visa-name')?.value.trim() || '';
+  const phone       = document.getElementById('visa-phone')?.value.trim() || '';
+  const lang        = document.documentElement.lang;
+
+  const selectedOpt = visaSelect?.options[visaSelect.selectedIndex];
+  const visaLabel   = selectedOpt?.getAttribute(`data-${lang}`) || selectedOpt?.textContent || '';
+
+  const text = lang === 'ar'
+    ? `طلب تأشيرة — أماني تريب\nنوع التأشيرة: ${visaLabel}\nعدد الأشخاص: ${persons}\nتاريخ المغادرة: ${depart}\nتاريخ العودة: ${retour}\nالاسم: ${name}\nالهاتف: ${phone}`
+    : `Demande de Visa — Amany Trip\nType de visa: ${visaLabel}\nNombre de personnes: ${persons}\nDate de départ: ${depart}\nDate de retour: ${retour}\nNom: ${name}\nTél: ${phone}`;
+
+  window.open(`https://wa.me/212604702922?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+
+  const submitBtn = document.getElementById('visa-submit-btn');
+  const successEl = document.getElementById('visa-form-success');
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '.6'; }
+  if (successEl) { successEl.removeAttribute('hidden'); }
+
+  setTimeout(() => {
+    closeVisaModal();
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.style.opacity = ''; }
+    if (successEl) { successEl.setAttribute('hidden', ''); }
+    document.getElementById('visa-form')?.reset();
+  }, 2000);
+});
+
+// Attach click handlers on visa CTA buttons
+document.querySelectorAll('.btn-visa-cta').forEach(btn => {
+  btn.addEventListener('click', () => openVisaModal(btn.dataset.visa));
+});
+
+/* ══════════════════════════════════════════════════════════
    SMOOTH SCROLL for anchor links
 ══════════════════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
