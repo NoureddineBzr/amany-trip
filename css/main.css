@@ -1334,16 +1334,124 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
 /* ══════════════════════════════════════════════════════════
    VISA SECTION
 ══════════════════════════════════════════════════════════ */
-.visa-section { background: #f8f9ff; }
+.visa-section { background: #f4f6fb; }
 
 .visa-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 18px;
 }
 
+/* ── Visa Card ── */
+.visa-card-new {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e8ecf4;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  box-shadow: 0 2px 12px rgba(26,58,143,.06);
+}
+.visa-card-new:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px rgba(26,58,143,.13);
+  border-color: #c8d4f0;
+}
 
-/* Description paragraph */
+/* Top row: flag + label */
+.visa-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Flag thumbnail */
+.visa-flag-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e8ecf4;
+  flex-shrink: 0;
+}
+.visa-flag-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.visa-card-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: #eef2ff;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+/* Country name */
+.visa-card-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Type badge */
+.visa-type-badge {
+  display: inline-block;
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #fff8e6;
+  color: #b07d00;
+  border: 1px solid #f0d070;
+  align-self: flex-start;
+}
+.visa-type-badge.badge-blue {
+  background: #eef4ff;
+  color: var(--primary);
+  border-color: #c0d0f5;
+}
+
+/* Description */
+.visa-card-desc {
+  font-size: .8rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+  margin: 0;
+}
+
+/* CTA */
+.visa-card-cta {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 0;
+  width: 100%;
+  font-weight: 700;
+  font-size: .84rem;
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s;
+  letter-spacing: .3px;
+}
+.visa-card-cta:hover {
+  background: var(--primary-dark, #142aaa);
+  box-shadow: 0 4px 14px rgba(26,58,143,.3);
+}
+
+/* keep old visa-desc in case used elsewhere */
 .visa-desc {
   font-size: .84rem;
   color: var(--muted);
@@ -1426,12 +1534,12 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
 
 /* Responsive — Tablet ≤1024px */
 @media (max-width: 1024px) {
-  .visa-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .visa-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
 }
 
 /* Responsive — Mobile ≤768px */
 @media (max-width: 768px) {
-  .visa-grid        { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .visa-grid        { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .visa-modal       { padding: 28px 20px; border-radius: 16px; }
   .visa-modal-title { font-size: 1.25rem; }
 }
