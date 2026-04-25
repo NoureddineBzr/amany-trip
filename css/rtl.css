@@ -152,6 +152,43 @@ html[dir="rtl"] .visa-card .dest-highlights li::before {
 }
 
 
+/* ── Maroc cards ──────────────────────────────────────────── */
+html[dir="rtl"] .maroc-body     { direction: rtl; text-align: right; }
+html[dir="rtl"] .maroc-duration { align-self: flex-end; }
+html[dir="rtl"] .maroc-price small { margin-left: 0; margin-right: 3px; }
+
+/* ── Trip modal (Agadir) ──────────────────────────────────── */
+html[dir="rtl"] .trip-modal           { direction: rtl; text-align: right; }
+html[dir="rtl"] .trip-modal-close     { right: auto; left: 14px; }
+html[dir="rtl"] .trip-modal-hero-overlay { direction: rtl; text-align: right; }
+html[dir="rtl"] .trip-meta-pill strong { margin-right: 0; margin-left: 4px; }
+html[dir="rtl"] .trip-day             { border-left: none; border-right: 3px solid var(--accent); border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+html[dir="rtl"] .trip-day-list li     { text-align: right; }
+html[dir="rtl"] .trip-included li     { padding-left: 0; padding-right: 22px; text-align: right; }
+html[dir="rtl"] .trip-included li::before { left: auto; right: 0; }
+
+/* ── Voyage sur mesure ────────────────────────────────────── */
+html[dir="rtl"] .sur-mesure-form-wrap { direction: rtl; text-align: right; }
+html[dir="rtl"] .sm-trust            { direction: rtl; }
+html[dir="rtl"] .sm-trust-item       { text-align: right; }
+html[dir="rtl"] .sm-services         { direction: rtl; }
+html[dir="rtl"] .sm-service          { text-align: right; }
+html[dir="rtl"] .sm-service-tick     { right: auto; left: 12px; }
+
+/* Inputs with icon — flip side */
+html[dir="rtl"] .sm-input-svg        { left: auto; right: 14px; }
+html[dir="rtl"] .sm-input-icon .sm-input-wrap input,
+html[dir="rtl"] .sm-input-icon .sm-input-wrap select {
+  padding-left: 14px;
+  padding-right: 42px;
+  text-align: right;
+  direction: rtl;
+}
+html[dir="rtl"] #sur-mesure-form textarea { text-align: right; direction: rtl; }
+html[dir="rtl"] #sur-mesure-form .form-group label { text-align: right; display: block; letter-spacing: 0; }
+html[dir="rtl"] .sm-section-label    { letter-spacing: 0; }
+html[dir="rtl"] .sm-form-badge       { letter-spacing: 0; }
+
 /* ── Visa modal ───────────────────────────────────────────── */
 html[dir="rtl"] .visa-modal        { text-align: right; direction: rtl; }
 html[dir="rtl"] .visa-modal-close  { right: auto; left: 16px; }

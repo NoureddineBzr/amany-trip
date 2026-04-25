@@ -400,6 +400,155 @@ document.querySelectorAll('.btn-visa-cta').forEach(btn => {
 });
 
 /* ══════════════════════════════════════════════════════════
+   TRIP MODALS (Maroc programmes — Agadir, Sud4, Ouest, Nord, Dakhla)
+══════════════════════════════════════════════════════════ */
+function openTripModal(tripId) {
+  const overlay = document.getElementById(`${tripId}-modal-overlay`);
+  if (!overlay) return;
+  overlay.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTripModal(tripId) {
+  const overlay = document.getElementById(`${tripId}-modal-overlay`);
+  if (overlay) overlay.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function closeAllTripModals() {
+  document.querySelectorAll('.trip-modal-overlay').forEach(el => {
+    el.style.display = 'none';
+  });
+  document.body.style.overflow = '';
+}
+
+// Open trip modal from Maroc card buttons
+document.querySelectorAll('.btn-maroc-detail').forEach(btn => {
+  btn.addEventListener('click', () => openTripModal(btn.dataset.trip));
+});
+
+// Close button inside each modal (uses data-trip-close OR id="agadir-modal-close" for legacy)
+document.getElementById('agadir-modal-close')?.addEventListener('click', () => closeTripModal('agadir'));
+document.querySelectorAll('[data-trip-close]').forEach(btn => {
+  btn.addEventListener('click', () => closeTripModal(btn.dataset.tripClose));
+});
+
+// Click outside modal content to close
+document.querySelectorAll('.trip-modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+// ESC closes any open modal
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  closeAllTripModals();
+  closeVisaModal();
+});
+
+/* ══════════════════════════════════════════════════════════
+   SUR MESURE FORM — date validation + WhatsApp submit
+══════════════════════════════════════════════════════════ */
+document.getElementById('sm-depart')?.addEventListener('change', function() {
+  const ret = document.getElementById('sm-return');
+  if (!ret || !this.value) return;
+  const next = new Date(this.value);
+  next.setDate(next.getDate() + 1);
+  ret.min = next.toISOString().split('T')[0];
+  if (ret.value && ret.value <= this.value) ret.value = '';
+  ret.setCustomValidity('');
+});
+
+document.getElementById('sm-return')?.addEventListener('change', function() {
+  const dep = document.getElementById('sm-depart')?.value;
+  if (dep && this.value && this.value <= dep) {
+    this.setCustomValidity(
+      document.documentElement.lang === 'ar'
+        ? 'يجب أن يكون تاريخ العودة بعد تاريخ الذهاب'
+        : 'La date de retour doit être après la date d\'aller'
+    );
+  } else {
+    this.setCustomValidity('');
+  }
+});
+
+document.getElementById('sur-mesure-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!this.checkValidity()) { this.reportValidity(); return; }
+
+  const destination = document.getElementById('sm-destination')?.value.trim() || '';
+  const depart      = document.getElementById('sm-depart')?.value             || '';
+  const retour      = document.getElementById('sm-return')?.value             || '';
+  const travelers   = document.getElementById('sm-travelers')?.value          || '';
+  const hotelSel    = document.getElementById('sm-hotel');
+  const name        = document.getElementById('sm-name')?.value.trim()        || '';
+  const phone       = document.getElementById('sm-phone')?.value.trim()       || '';
+  const message     = document.getElementById('sm-message')?.value.trim()     || '';
+  const lang        = document.documentElement.lang;
+
+  const hotelOpt    = hotelSel?.options[hotelSel.selectedIndex];
+  const hotelLabel  = hotelOpt?.getAttribute(`data-${lang}`) || hotelOpt?.textContent || '';
+
+  const services = [];
+  const svcMap = lang === 'ar'
+    ? { 'sm-vol': 'تذاكر الطيران', 'sm-transport': 'النقل في الوجهة', 'sm-guide': 'مرشد سياحي',
+        'sm-visa': 'المساعدة في التأشيرة', 'sm-assurance': 'تأمين السفر', 'sm-excursions': 'رحلات وأنشطة' }
+    : { 'sm-vol': 'Vol aller-retour', 'sm-transport': 'Transport sur place', 'sm-guide': 'Guide touristique',
+        'sm-visa': 'Assistance Visa', 'sm-assurance': 'Assurance voyage', 'sm-excursions': 'Excursions / Activités' };
+  Object.keys(svcMap).forEach(id => {
+    if (document.getElementById(id)?.checked) services.push(svcMap[id]);
+  });
+
+  const text = lang === 'ar'
+    ? `🌟 طلب رحلة حسب الطلب — أماني تريب\n\n` +
+      `الوجهة: ${destination}\n` +
+      `تاريخ الذهاب: ${depart}\n` +
+      `تاريخ العودة: ${retour}\n` +
+      `عدد المسافرين: ${travelers}\n` +
+      `فئة الفندق: ${hotelLabel}\n` +
+      (services.length ? `الخدمات: ${services.join(' · ')}\n` : '') +
+      `\nالاسم: ${name}\nالهاتف: ${phone}` +
+      (message ? `\n\n${message}` : '')
+    : `🌟 Demande de voyage sur mesure — Amany Trip\n\n` +
+      `Destination: ${destination}\n` +
+      `Date d'aller: ${depart}\n` +
+      `Date de retour: ${retour}\n` +
+      `Voyageurs: ${travelers}\n` +
+      `Catégorie hôtel: ${hotelLabel}\n` +
+      (services.length ? `Services: ${services.join(' · ')}\n` : '') +
+      `\nNom: ${name}\nTél: ${phone}` +
+      (message ? `\n\n${message}` : '');
+
+  window.open(`https://wa.me/212604702922?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+
+  const submitBtn = document.getElementById('sur-mesure-submit');
+  const successEl = document.getElementById('sur-mesure-success');
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.style.opacity = '.6'; }
+  if (successEl) {
+    successEl.removeAttribute('hidden');
+    successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  setTimeout(() => {
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.style.opacity = ''; }
+    if (successEl) { successEl.setAttribute('hidden', ''); }
+  }, 6000);
+});
+
+// Set min date = today on load
+(function() {
+  const today = new Date().toISOString().split('T')[0];
+  ['sm-depart', 'sm-return'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.min = today;
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════
    SMOOTH SCROLL for anchor links
 ══════════════════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -422,6 +571,20 @@ setTimeout(() => {
 }, 3000);
 
 /* ══════════════════════════════════════════════════════════
+   ACCESSIBILITY — bulk-mark decorative SVGs + required inputs
+   (Icons accompanied by visible text labels are decorative for AT)
+══════════════════════════════════════════════════════════ */
+function enhanceA11y() {
+  document.querySelectorAll('svg:not([aria-hidden]):not([role="img"])').forEach(svg => {
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+  });
+  document.querySelectorAll('[required]:not([aria-required])').forEach(el => {
+    el.setAttribute('aria-required', 'true');
+  });
+}
+
+/* ══════════════════════════════════════════════════════════
    INIT
 ══════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -439,4 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Navbar initial state
   if (window.scrollY > 60) DOM.navbar?.classList.add('scrolled');
+
+  // A11y enhancements (decorative svgs + required inputs)
+  enhanceA11y();
 });

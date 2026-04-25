@@ -37,6 +37,28 @@ a    { text-decoration: none; color: inherit; }
 ul   { list-style: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
+/* A11y — visible keyboard focus ring on all interactive elements */
+:focus { outline: none; }
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: none;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track, .float-wa, .airplane-float, .scroll-dot { animation: none !important; }
+}
+
 /* ── Helpers ────────────────────────────────────────────── */
 .container   { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 .section     { padding: 96px 0; contain: layout style; }
@@ -594,6 +616,703 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   white-space: nowrap;
 }
 .btn-dest:hover { background: var(--secondary); transform: translateY(-1px); }
+
+/* ══════════════════════════════════════════════════════════
+   VOYAGES MAROC
+══════════════════════════════════════════════════════════ */
+.maroc-section { background: #fff; }
+
+.maroc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.maroc-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform var(--tr), box-shadow var(--tr);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.04);
+}
+.maroc-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 42px rgba(204,31,74,.14);
+}
+
+.maroc-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f0f4ff;
+  flex-shrink: 0;
+}
+.maroc-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.maroc-card:hover .maroc-img-wrap img { transform: scale(1.05); }
+
+.maroc-img-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,26,46,.5) 0%, transparent 55%);
+}
+
+/* Duration pill displayed at bottom of card body (above price/CTA footer) */
+.maroc-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  background: rgba(204,31,74,.08);
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 100px;
+  letter-spacing: .2px;
+  border: 1px solid rgba(204,31,74,.18);
+}
+.maroc-duration svg { flex-shrink: 0; opacity: .9; }
+.maroc-duration.duration-blue   { background: rgba(26,58,143,.08);  color: var(--primary); border-color: rgba(26,58,143,.2); }
+.maroc-duration.duration-teal   { background: rgba(13,148,136,.08); color: #0d9488;        border-color: rgba(13,148,136,.22); }
+.maroc-duration.duration-orange { background: rgba(234,88,12,.08);  color: #ea580c;        border-color: rgba(234,88,12,.22); }
+.maroc-duration.duration-red    { background: rgba(185,28,28,.08);  color: #b91c1c;        border-color: rgba(185,28,28,.22); }
+
+.maroc-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.maroc-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.3;
+}
+
+.maroc-route {
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.maroc-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+.maroc-footer > * { min-width: 0; }
+
+.maroc-price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+.maroc-price small {
+  font-size: .7rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-left: 3px;
+}
+
+.maroc-price-soft {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.btn-maroc {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--primary);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  transition: var(--tr);
+  white-space: nowrap;
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+}
+.btn-maroc:hover { background: var(--secondary); transform: translateY(-1px); }
+.btn-maroc-detail { background: var(--accent); }
+.btn-maroc-detail:hover { background: #ad1840; }
+
+/* ══════════════════════════════════════════════════════════
+   TRIP MODAL (Agadir programme)
+══════════════════════════════════════════════════════════ */
+.trip-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.78);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 20px;
+}
+
+.trip-modal {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 720px;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalIn .35s ease;
+  box-shadow: 0 30px 80px rgba(0,0,0,.4);
+}
+
+.trip-modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: rgba(255,255,255,.92);
+  border: none;
+  border-radius: 50%;
+  width: 36px; height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--tr);
+  color: var(--dark);
+  z-index: 5;
+  font-family: var(--font);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+.trip-modal-close:hover { background: #fff; transform: scale(1.1); }
+
+.trip-modal-hero {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--primary);
+}
+.trip-modal-hero img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.trip-modal-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(12,30,94,.92) 0%, rgba(12,30,94,.4) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  color: #fff;
+}
+
+.trip-modal-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.trip-modal-route {
+  font-size: .9rem;
+  opacity: .9;
+  margin-bottom: 14px;
+}
+
+.trip-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.trip-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.28);
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: .82rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+}
+.trip-meta-pill svg { opacity: .9; flex-shrink: 0; }
+.trip-meta-pill strong { font-weight: 700; margin-right: 4px; }
+.trip-meta-pill.trip-meta-price {
+  background: var(--yellow);
+  color: var(--dark);
+  border-color: var(--yellow);
+  font-weight: 700;
+}
+
+.trip-modal-body {
+  padding: 32px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.trip-day {
+  border-left: 3px solid var(--accent);
+  padding: 18px 20px;
+  background: var(--light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.trip-day-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.trip-day-head h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.trip-day-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(204,31,74,.3);
+}
+
+.trip-day-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.trip-day-list li {
+  display: flex;
+  gap: 12px;
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.55;
+  align-items: flex-start;
+}
+.trip-day-list li > span:last-child {
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.trip-time {
+  background: var(--primary);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-variant-numeric: tabular-nums;
+}
+.trip-bullet {
+  color: var(--accent);
+  font-weight: 800;
+  flex-shrink: 0;
+  width: 12px;
+  text-align: center;
+}
+
+.trip-note {
+  background: linear-gradient(135deg, #fefce8, #fef9c3);
+  border: 1.5px solid #fde68a;
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: #854d0e;
+  text-align: center;
+}
+
+.trip-included {
+  background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+  border: 1.5px solid #86efac;
+  border-radius: var(--radius-sm);
+  padding: 22px 24px;
+}
+.trip-included h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #166534;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.trip-included h3 svg { color: #16a34a; flex-shrink: 0; }
+.trip-included ul {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.trip-included li {
+  position: relative;
+  padding-left: 22px;
+  font-size: .87rem;
+  color: #14532d;
+  line-height: 1.5;
+}
+.trip-included li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: #16a34a;
+}
+
+.trip-modal-cta {
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   VOYAGE SUR MESURE
+══════════════════════════════════════════════════════════ */
+.sur-mesure-section {
+  background: linear-gradient(180deg, var(--light) 0%, #eef2fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sm-bg-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 90% 5%, rgba(204,31,74,.06) 0%, transparent 35%),
+    radial-gradient(circle at 8% 85%, rgba(26,58,143,.07) 0%, transparent 35%);
+}
+.sur-mesure-section .container { position: relative; z-index: 1; }
+
+/* Trust strip */
+.sm-trust {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+  padding: 22px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px rgba(26,58,143,.06);
+  border: 1px solid rgba(26,58,143,.06);
+}
+.sm-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px;
+}
+.sm-trust-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: #fff;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(26,58,143,.25);
+}
+.sm-trust-item strong {
+  display: block;
+  font-size: .87rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+.sm-trust-item small {
+  font-size: .72rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Main grid */
+.sur-mesure-grid {
+  display: block;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* ── Form card ── */
+.sur-mesure-form-wrap {
+  background: #fff;
+  border-radius: 22px;
+  padding: 38px 38px 34px;
+  box-shadow: 0 12px 40px rgba(26,58,143,.08);
+  border: 1px solid rgba(26,58,143,.06);
+  position: relative;
+}
+
+.sm-form-head {
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px dashed rgba(26,58,143,.15);
+}
+.sm-form-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(204,31,74,.1);
+  color: var(--accent);
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 12px;
+}
+.sm-form-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.sm-form-sub {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+#sur-mesure-form { display: flex; flex-direction: column; gap: 0; }
+
+.sm-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 0;
+  border-bottom: 1px dashed rgba(26,58,143,.1);
+}
+.sm-section:last-of-type { border-bottom: none; padding-bottom: 22px; }
+
+.sm-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .72rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.sm-section-label svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Inputs with leading icon */
+.sm-input-icon .sm-input-wrap {
+  position: relative;
+}
+.sm-input-svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+  transition: color var(--tr);
+}
+.sm-input-icon .sm-input-wrap input,
+.sm-input-icon .sm-input-wrap select {
+  padding-left: 42px;
+  width: 100%;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-right: 14px;
+  border: 1.5px solid rgba(0,0,0,.1);
+  border-radius: 10px;
+  font-size: .92rem;
+  font-family: var(--font);
+  color: var(--text);
+  background: #fff;
+  outline: none;
+  transition: var(--tr);
+  box-sizing: border-box;
+}
+.sm-input-icon .sm-input-wrap input:focus,
+.sm-input-icon .sm-input-wrap select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26,58,143,.08);
+}
+.sm-input-icon .sm-input-wrap:focus-within .sm-input-svg {
+  color: var(--primary);
+}
+
+#sur-mesure-form textarea {
+  padding: 13px 14px;
+  border: 1.5px solid rgba(0,0,0,.1);
+  border-radius: 10px;
+  font-size: .92rem;
+  font-family: var(--font);
+  color: var(--text);
+  background: #fff;
+  outline: none;
+  transition: var(--tr);
+  resize: vertical;
+  min-height: 90px;
+  width: 100%;
+}
+#sur-mesure-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(26,58,143,.08);
+}
+
+/* Service cards */
+.sm-services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sm-service {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 18px 16px;
+  background: var(--light);
+  border: 2px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: var(--tr);
+  user-select: none;
+  overflow: hidden;
+}
+.sm-service input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.sm-service:hover {
+  border-color: rgba(26,58,143,.3);
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(26,58,143,.08);
+}
+
+.sm-service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(26,58,143,.08);
+  color: var(--primary);
+  border-radius: 10px;
+  transition: var(--tr);
+  flex-shrink: 0;
+}
+
+.sm-service-tick {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 22px; height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 2px solid rgba(0,0,0,.15);
+  border-radius: 50%;
+  color: transparent;
+  transition: var(--tr);
+}
+
+.sm-service-text strong {
+  display: block;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+.sm-service-text small {
+  font-size: .74rem;
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Checked state */
+.sm-service:has(input:checked) {
+  background: linear-gradient(135deg, rgba(204,31,74,.04) 0%, rgba(245,197,24,.04) 100%);
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(204,31,74,.12);
+}
+.sm-service:has(input:checked) .sm-service-icon {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(204,31,74,.3);
+}
+.sm-service:has(input:checked) .sm-service-tick {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.sm-submit-btn {
+  margin-top: 24px;
+  padding: 16px 28px;
+  font-size: .98rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent) 0%, #ad1840 100%);
+  box-shadow: 0 8px 24px rgba(204,31,74,.32);
+}
+.sm-submit-btn:hover {
+  background: linear-gradient(135deg, #ad1840 0%, var(--accent) 100%);
+  box-shadow: 0 12px 30px rgba(204,31,74,.4);
+}
+
+.sm-form-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: .76rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.sm-form-note svg { opacity: .7; flex-shrink: 0; }
+
+#sur-mesure-success { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+#sur-mesure-success[hidden] { display: none; }
+#sur-mesure-success svg { flex-shrink: 0; color: #16a34a; }
 
 /* ══════════════════════════════════════════════════════════
    WHY US
@@ -1178,6 +1897,9 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
 
   /* Grids */
   .dest-grid        { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .maroc-grid       { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .sm-trust         { grid-template-columns: repeat(2, 1fr); }
+  .sm-services      { grid-template-columns: repeat(2, 1fr); }
   .why-grid         { grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .about-grid       { grid-template-columns: 1fr; gap: 40px; }
   .about-location   { order: -1; max-width: 520px; margin: 0 auto; width: 100%; }
@@ -1219,6 +1941,83 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
   .dest-body       { padding: 18px; }
   .dest-footer     { flex-direction: column; align-items: flex-start; gap: 10px; }
   .btn-dest        { width: 100%; justify-content: center; }
+
+  /* Maroc */
+  .maroc-grid      { grid-template-columns: 1fr; gap: 18px; }
+  .maroc-img-wrap  { aspect-ratio: 16 / 10; }
+  .maroc-body      { padding: 18px; gap: 8px; }
+  .maroc-title     { font-size: 1.05rem; }
+  .maroc-route     { font-size: .82rem; }
+  .maroc-footer    { flex-direction: row; padding-top: 12px; }
+  .maroc-price     { font-size: 1.15rem; }
+  .btn-maroc       { padding: 8px 14px; font-size: .78rem; }
+
+  /* Trip modal */
+  .trip-modal-overlay { padding: 12px; }
+  .trip-modal        { max-height: 94vh; border-radius: 16px; }
+  .trip-modal-close  { width: 32px; height: 32px; top: 10px; right: 10px; }
+  .trip-modal-hero   { aspect-ratio: 16 / 11; }
+  .trip-modal-hero-overlay { padding: 18px; }
+  .trip-modal-title  { font-size: 1.25rem; margin-bottom: 4px; }
+  .trip-modal-route  { font-size: .78rem; margin-bottom: 10px; line-height: 1.45; }
+  .trip-modal-meta   { gap: 6px; }
+  .trip-meta-pill    { font-size: .72rem; padding: 5px 10px; gap: 5px; }
+  .trip-meta-pill svg{ width: 12px; height: 12px; }
+  .trip-modal-body   { padding: 22px 18px 24px; gap: 18px; }
+  .trip-day          { padding: 14px 14px; }
+  .trip-day-head     { gap: 8px; }
+  .trip-day-head h3  { font-size: 1rem; }
+  .trip-day-pin      { width: 28px; height: 28px; }
+  .trip-day-pin svg  { width: 14px; height: 14px; }
+  .trip-day-list li  { font-size: .82rem; gap: 10px; }
+  .trip-time         { font-size: .68rem; padding: 2px 7px; }
+  .trip-included     { padding: 18px 16px; }
+  .trip-included h3  { font-size: .92rem; gap: 8px; }
+  .trip-included li  { font-size: .82rem; }
+  .trip-modal-cta    { padding: 13px 22px; font-size: .9rem; }
+
+  /* Sur mesure — Form card */
+  .sur-mesure-form-wrap { padding: 24px 18px; border-radius: 18px; }
+  .sm-form-head         { margin-bottom: 22px; padding-bottom: 18px; }
+  .sm-form-badge        { font-size: .68rem; padding: 4px 10px; margin-bottom: 10px; }
+  .sm-form-title        { font-size: 1.15rem; line-height: 1.3; }
+  .sm-form-sub          { font-size: .82rem; }
+  .sm-section           { padding: 18px 0; gap: 14px; }
+  .sm-section-label     { font-size: .68rem; gap: 6px; }
+
+  /* Sur mesure — Inputs with icon */
+  .sm-input-icon .sm-input-wrap input,
+  .sm-input-icon .sm-input-wrap select {
+    padding-top: 12px; padding-bottom: 12px;
+    font-size: .88rem;
+  }
+
+  /* Sur mesure — Service cards as horizontal rows */
+  .sm-services          { grid-template-columns: 1fr; gap: 10px; }
+  .sm-service           {
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 44px 13px 14px;
+    gap: 12px;
+  }
+  .sm-service-icon      { width: 40px; height: 40px; }
+  .sm-service-text      { flex: 1; min-width: 0; }
+  .sm-service-text strong { font-size: .88rem; }
+  .sm-service-text small  { font-size: .72rem; }
+  .sm-service-tick      { top: 50%; transform: translateY(-50%); right: 14px; width: 22px; height: 22px; }
+
+  /* Sur mesure — Submit + helpers */
+  .sm-submit-btn        { padding: 14px 22px; font-size: .9rem; margin-top: 18px; }
+  .sm-form-note         { font-size: .72rem; }
+
+  /* Sur mesure — Trust strip */
+  .sm-trust             { grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px; margin-bottom: 26px; border-radius: 14px; }
+  .sm-trust-item        { gap: 10px; padding: 4px; min-width: 0; }
+  .sm-trust-item > div  { min-width: 0; flex: 1; }
+  .sm-trust-icon        { width: 36px; height: 36px; border-radius: 9px; }
+  .sm-trust-icon svg    { width: 18px; height: 18px; }
+  .sm-trust-item strong { font-size: .78rem; }
+  .sm-trust-item small  { font-size: .68rem; }
 
   /* Why cards */
   .why-grid        { grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -1329,6 +2128,80 @@ html[dir="rtl"] .btn-all-reviews:hover .arrow-icon { transform: scaleX(-1) trans
   /* Reviews CTA */
   .reviews-cta       { padding: 0; }
   .reviews-cta-text span:first-child { font-size: .82rem; }
+
+  /* ── Maroc — small mobile ── */
+  .maroc-img-wrap        { aspect-ratio: 16 / 11; }
+  .maroc-body            { padding: 16px; gap: 8px; }
+  .maroc-title           { font-size: 1rem; }
+  .maroc-route           { font-size: .78rem; }
+  .maroc-price           { font-size: 1.05rem; }
+  .maroc-price small     { font-size: .65rem; }
+  .btn-maroc             { padding: 8px 12px; font-size: .74rem; }
+
+  /* ── Trip modal — small mobile ── */
+  .trip-modal-overlay    { padding: 8px; }
+  .trip-modal            { border-radius: 14px; max-height: 95vh; }
+  .trip-modal-close      { width: 30px; height: 30px; top: 8px; right: 8px; }
+  .trip-modal-hero       { aspect-ratio: 4 / 3; }
+  .trip-modal-hero-overlay { padding: 14px; }
+  .trip-modal-title      { font-size: 1.08rem; }
+  .trip-modal-route      { font-size: .72rem; margin-bottom: 8px; }
+  .trip-meta-pill        { font-size: .68rem; padding: 4px 9px; }
+  .trip-modal-body       { padding: 18px 14px 22px; gap: 14px; }
+  .trip-day              { padding: 12px; }
+  .trip-day-head         { margin-bottom: 12px; }
+  .trip-day-head h3      { font-size: .92rem; letter-spacing: .5px; }
+  .trip-day-pin          { width: 26px; height: 26px; }
+  .trip-day-pin svg      { width: 13px; height: 13px; }
+  .trip-day-list         { gap: 7px; }
+  .trip-day-list li      { font-size: .78rem; gap: 8px; line-height: 1.5; }
+  .trip-time             { font-size: .65rem; padding: 2px 6px; }
+  .trip-included         { padding: 16px 14px; }
+  .trip-included h3      { font-size: .88rem; }
+  .trip-included li      { font-size: .78rem; padding-left: 20px; }
+
+  /* ── Sur mesure — small mobile ── */
+  .sm-trust              { grid-template-columns: 1fr; gap: 0; padding: 8px 14px; }
+  .sm-trust-item         { padding: 10px 0; border-bottom: 1px dashed rgba(26,58,143,.1); }
+  .sm-trust-item:last-child { border-bottom: none; }
+  .sm-trust-item strong  { font-size: .82rem; }
+  .sm-trust-item small   { font-size: .7rem; }
+
+  .sur-mesure-form-wrap  { padding: 22px 16px; border-radius: 16px; }
+  .sm-form-head          { padding-bottom: 16px; margin-bottom: 18px; }
+  .sm-form-title         { font-size: 1.08rem; }
+  .sm-form-sub           { font-size: .78rem; }
+
+  .sm-section            { padding: 16px 0; gap: 12px; }
+  .sm-section-label      { font-size: .65rem; }
+
+  .sm-input-icon .sm-input-wrap input,
+  .sm-input-icon .sm-input-wrap select {
+    padding-left: 38px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    font-size: .85rem;
+  }
+  .sm-input-svg          { left: 12px; width: 16px; height: 16px; }
+  #sur-mesure-form textarea { font-size: .85rem; padding: 11px 13px; }
+
+  .sm-services           { gap: 8px; }
+  .sm-service            { padding: 12px 40px 12px 12px; gap: 10px; border-radius: 12px; }
+  .sm-service-icon       { width: 36px; height: 36px; border-radius: 9px; }
+  .sm-service-icon svg   { width: 18px; height: 18px; }
+  .sm-service-text strong{ font-size: .85rem; }
+  .sm-service-text small { font-size: .7rem; }
+  .sm-service-tick       { right: 12px; width: 20px; height: 20px; }
+  .sm-service-tick svg   { width: 10px; height: 10px; }
+
+  .sm-submit-btn         { padding: 13px 18px; font-size: .87rem; border-radius: 11px; }
+  .sm-form-note          { font-size: .7rem; }
+
+  /* RTL fixes for small mobile */
+  html[dir="rtl"] .sm-input-svg { right: 12px; left: auto; }
+  html[dir="rtl"] .sm-input-icon .sm-input-wrap input,
+  html[dir="rtl"] .sm-input-icon .sm-input-wrap select { padding-right: 38px; padding-left: 14px; }
+  html[dir="rtl"] .sm-service-tick { left: 12px; right: auto; }
 }
 
 /* ══════════════════════════════════════════════════════════

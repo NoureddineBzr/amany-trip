@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -c C:/Users/HP/myprojects/amany-trip/js/main.js)"
+    ]
+  }
+}
