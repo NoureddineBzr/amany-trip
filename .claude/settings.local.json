@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -c C:/Users/HP/myprojects/amany-trip/js/main.js)"
+      "Bash(node -c C:/Users/HP/myprojects/amany-trip/js/main.js)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('C:/Users/HP/myprojects/amany-trip/vercel.json'\\)\\)\")"
     ]
   }
 }
